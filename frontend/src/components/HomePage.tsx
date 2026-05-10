@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import About from '@/components/About';
 import Advantages from '@/components/Advantages';
 import Header from '@/components/Header';
@@ -10,6 +10,10 @@ import Services from './Services';
 
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const handleSelectLocale = (nextLocale: Locale) => {
     setLocale(nextLocale);
@@ -21,7 +25,7 @@ export default function HomePage() {
       <Hero locale={locale} />
       <About locale={locale} />
       <Advantages locale={locale} />
-      <Services />
+      <Services locale={locale} />
     </>
   );
 }

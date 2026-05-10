@@ -66,7 +66,7 @@ export default function Advantages({ locale }: AdvantagesProps) {
             </ul>
 
             {/* Статистика: 2 колонки на мобайле, 4 на lg */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-8 lg:mt-12 mb-52 sm:mb-64 lg:mb-0">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-8 lg:mt-12 mb-12 sm:mb-14 lg:mb-0">
               {stats.map((item, index) => (
                 <div key={index} className="flex flex-col items-start">
                   <h4 className="text-3xl sm:text-4xl lg:text-5xl text-[#F4450A] font-bold">

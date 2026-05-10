@@ -14,7 +14,7 @@ export const LOCALE_NAMES: Record<Locale, string> = {
   en: 'English',
 };
 
-export const DEFAULT_LOCALE: Locale = 'kk';
+export const DEFAULT_LOCALE: Locale = 'ru';
 
 export type NavigationLink = { label: string };
 export type HeroItem = { title: string; text: string; img: string };
@@ -167,7 +167,10 @@ const dictionaries: Record<Locale, Dictionary> = {
             { text: 'үдерістер', accent: false },
           ],
           text: [
-            { text: 'Қойманы басқару және операцияларды бақылауға арналған заманауи ', accent: false },
+            {
+              text: 'Қойманы басқару және операцияларды бақылауға арналған заманауи ',
+              accent: false,
+            },
             { text: 'IT шешімдері', accent: true },
             { text: '.', accent: false },
           ],
@@ -478,7 +481,7 @@ const dictionaries: Record<Locale, Dictionary> = {
 
 function getTranslationValue<Key extends keyof TranslationMap>(
   dictionary: Dictionary,
-  key: Key
+  key: Key,
 ): TranslationMap[Key] {
   return key.split('.').reduce<unknown>((value, segment) => {
     if (!value || typeof value !== 'object' || !(segment in value)) {

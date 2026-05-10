@@ -15,8 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={DEFAULT_LOCALE} className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang={DEFAULT_LOCALE} translate="no" className="h-full antialiased notranslate">
+      <head>
+        <meta name="google" content="notranslate" />
+      </head>
+      <body className="min-h-full flex flex-col notranslate">{children}</body>
     </html>
   );
 }

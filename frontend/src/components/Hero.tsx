@@ -20,6 +20,9 @@ export default function Hero({ locale }: HeroProps) {
         alt="Hero Image"
         className="object-cover"
         style={{ zIndex: -1 }}
+        priority
+        sizes="100vw"
+        quality={85}
       />
       <div
         className="absolute inset-0"
