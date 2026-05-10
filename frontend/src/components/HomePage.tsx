@@ -1,0 +1,27 @@
+'use client';
+
+import { useState } from 'react';
+import About from '@/components/About';
+import Advantages from '@/components/Advantages';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n';
+import Services from './Services';
+
+export default function HomePage() {
+  const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
+
+  const handleSelectLocale = (nextLocale: Locale) => {
+    setLocale(nextLocale);
+  };
+
+  return (
+    <>
+      <Header locale={locale} onSelectLocale={handleSelectLocale} />
+      <Hero locale={locale} />
+      <About locale={locale} />
+      <Advantages locale={locale} />
+      <Services />
+    </>
+  );
+}
