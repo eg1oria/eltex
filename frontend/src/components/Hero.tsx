@@ -15,14 +15,14 @@ export default function Hero({ locale }: HeroProps) {
   return (
     <section className="relative flex items-start px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-12 md:px-16 md:pt-32 md:pb-14 lg:min-h-screen lg:items-center lg:px-36 lg:py-16">
       <Image
-        src={'/hero.webp'}
+        src={'/hero/hero.webp'}
         fill
         alt="Hero Image"
         className="object-cover"
         style={{ zIndex: -1 }}
         priority
         sizes="100vw"
-        quality={85}
+        quality={75}
       />
       <div
         className="absolute inset-0"
@@ -48,7 +48,7 @@ export default function Hero({ locale }: HeroProps) {
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:flex lg:gap-4">
           {items.map((item, index) => (
             <li className="flex items-center gap-3 sm:max-w-[240px] lg:max-w-xs" key={index}>
-              <Image src={item.img} width={48} height={40} alt={item.title} className="shrink-0" />
+              <Image src={item.img} width={48} height={40} alt={item.title} className="shrink-0" style={{ width: 'auto' }} />
               <div className="flex flex-col gap-1">
                 <span className="text-white font-medium text-base lg:text-xl">{item.title}</span>
                 <p className="text-xs lg:text-sm text-white/80">{item.text}</p>
@@ -65,6 +65,7 @@ export default function Hero({ locale }: HeroProps) {
         alt=""
         aria-hidden="true"
         className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 lg:block"
+        style={{ width: 'auto' }}
       />
     </section>
   );

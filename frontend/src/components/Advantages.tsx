@@ -18,7 +18,13 @@ export default function Advantages({ locale }: AdvantagesProps) {
     <section className="relative px-4 sm:px-10 lg:px-36 py-12 lg:py-16 bg-black overflow-hidden">
       {/* Фото: на мобайле — снизу полная ширина, на десктопе — правая половина */}
       <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-64 lg:top-0 lg:right-0 lg:left-auto lg:w-1/2 lg:h-full">
-        <Image src="/bg-adv.webp" alt="bg-adv" fill className="object-cover" />
+        <Image
+          src="/bg-adv.webp"
+          alt="bg-adv"
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+        />
         {/* На мобайле градиент сверху вниз, на десктопе — слева направо */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-transparent lg:bg-gradient-to-r lg:from-black lg:via-black/40 lg:to-transparent" />
       </div>

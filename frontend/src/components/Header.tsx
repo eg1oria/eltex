@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
 import { createTranslator, type Locale, type NavigationLink } from '@/lib/i18n';
 import LocaleSwitcher from './Swither';
@@ -11,6 +11,9 @@ type HeaderProps = {
   locale: Locale;
   onSelectLocale: (locale: Locale) => void;
 };
+
+const headerLinkHrefs = ['#about', '#services', '#companies', '#contacts'];
+const scrollOffset = 96;
 
 export default function Header({ locale, onSelectLocale }: HeaderProps) {
   const t = createTranslator(locale);
@@ -44,6 +47,22 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
 
   const handleToggleMenu = () => setMenuOpen((v) => !v);
   const closeMobileMenu = () => setMenuOpen(false);
+  const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('#')) return;
+
+    event.preventDefault();
+
+    const target = document.querySelector<HTMLElement>(href);
+    if (!target) return;
+
+    closeMobileMenu();
+    window.history.pushState(null, '', href);
+
+    window.requestAnimationFrame(() => {
+      const top = target.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+    });
+  };
 
   return (
     <>
@@ -91,11 +110,16 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
             {/* Desktop навигация */}
             <nav className="hidden lg:block">
               <ul className="flex items-center gap-6 xl:gap-8">
-                {navLinks.map((link) => (
-                  <li
-                    key={link.label}
-                    className="text-base xl:text-lg cursor-pointer hover:text-[#FF5A1F] transition-colors duration-200 whitespace-nowrap">
-                    {link.label}
+                {navLinks.map((link, index) => (
+                  <li key={link.label}>
+                    <Link
+                      href={headerLinkHrefs[index] ?? '/'}
+                      onClick={(event) =>
+                        handleAnchorClick(event, headerLinkHrefs[index] ?? '/')
+                      }
+                      className="text-base xl:text-lg cursor-pointer hover:text-[#FF5A1F] transition-colors duration-200 whitespace-nowrap">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -105,11 +129,12 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
           {/* Desktop правая часть */}
           <div className="hidden lg:flex items-center gap-4">
             <LocaleSwitcher locale={locale} onSelect={onSelectLocale} />
-            <button
-              type="button"
+            <Link
+              href="#contacts"
+              onClick={(event) => handleAnchorClick(event, '#contacts')}
               className="px-4 py-1 border border-[#FF5A1F] text-white rounded-full hover:bg-[#FF5A1F] transition-colors duration-200 whitespace-nowrap cursor-pointer">
               {requestCta}
-            </button>
+            </Link>
           </div>
 
           {/* Mobile: язык + бургер */}
@@ -149,25 +174,26 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
 
         <nav className="flex-1">
           <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <li key={link.label}>
-                <button
-                  type="button"
-                  onClick={closeMobileMenu}
-                  className="w-full py-4 text-left text-lg text-white border-b border-white/10 hover:text-[#FF5A1F] transition-colors duration-200 cursor-pointer touch-manipulation">
+                <Link
+                  href={headerLinkHrefs[index] ?? '/'}
+                  onClick={(event) => handleAnchorClick(event, headerLinkHrefs[index] ?? '/')}
+                  className="block w-full py-4 text-left text-lg text-white border-b border-white/10 hover:text-[#FF5A1F] transition-colors duration-200 cursor-pointer touch-manipulation">
                   {link.label}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="mt-auto pt-6">
-          <button
-            type="button"
-            className="w-full py-3 border border-[#FF5A1F] text-white rounded-full hover:bg-[#FF5A1F] transition-colors duration-200 text-base font-medium touch-manipulation">
+          <Link
+            href="#contacts"
+            onClick={(event) => handleAnchorClick(event, '#contacts')}
+            className="block w-full py-3 border border-[#FF5A1F] text-center text-white rounded-full hover:bg-[#FF5A1F] transition-colors duration-200 text-base font-medium touch-manipulation">
             {requestCta}
-          </button>
+          </Link>
         </div>
       </div>
     </>

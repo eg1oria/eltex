@@ -16,6 +16,11 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
 body {
   background: white;
   color: white;
