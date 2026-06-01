@@ -44,7 +44,7 @@ export default function LocaleSwitcher({ locale, onSelect }: Props) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="flex items-center gap-1 px-3 py-2 text-sm text-white hover:text-[#FF5A1F] transition-colors duration-200 cursor-pointer touch-manipulation">
+        className="flex items-center gap-1 px-3 py-2 text-sm text-white hover:text-[#353EEA] transition-colors duration-200 cursor-pointer touch-manipulation">
         {LOCALE_LABELS[locale]}
         <MdKeyboardArrowDown
           className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
@@ -70,7 +70,7 @@ export default function LocaleSwitcher({ locale, onSelect }: Props) {
                 setOpen(false);
               }}
               className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors duration-200 cursor-pointer touch-manipulation ${
-                isActive ? 'bg-[#FF5A1F]' : 'hover:bg-black/5'
+                isActive ? 'bg-[#353EEA]' : 'hover:bg-black/5'
               }`}>
               <span className={isActive ? 'text-white font-medium' : 'text-black'}>
                 {LOCALE_NAMES[option]}

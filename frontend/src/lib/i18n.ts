@@ -86,9 +86,9 @@ type TranslationMap = {
 const dictionaries: Record<Locale, Dictionary> = {
   kk: {
     metadata: {
-      title: 'Manata Logistics',
+      title: 'ЭлтексАлатау',
       description:
-        'Фармацевтикалық және медициналық өнімдерді сақтауға және өңдеуге арналған A класты логистикалық кешен.',
+        'Қазақстандық электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Eltex зауытының жалғыз ресми өкілі.',
     },
     header: {
       navLinks: [
@@ -104,52 +104,52 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       description:
-        'Дәрілік заттарды, медициналық бұйымдар мен жабдықтарды сақтауға және өңдеуге арналған заманауи A класты логистикалық кешен.',
+        'ЭлтексАлатау — электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Новосибирск Элтекс зауытының жалғыз ресми өкілі. Компания 2012 жылы құрылған.',
       cta: 'Маманмен байланысу',
       items: [
         {
-          title: 'GDP стандарты',
-          text: 'Жоғары сапалы логистикалық қызметтер',
+          title: 'Алматыдағы өндіріс',
+          text: '«Алатау» АИП ЕЭА аумағындағы өндірістік кешен',
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: 'WMS жүйелері',
-          text: 'Қойма үдерістерін интеллектуалды басқару',
+          title: '«Алтын Сапа» сыйлығы',
+          text: '2015 жылы «Үздік инновациялық жоба» номинациясында ҚР Президентінің сыйлығы лауреаты',
           img: '/hero/hero-icon2.webp',
         },
         {
-          title: 'Class A',
-          text: 'Қоймалық жылжымайтын мүліктің халықаралық стандарты',
+          title: '3 елде қатысу',
+          text: 'Жабдық Қазақстан, Өзбекстан және Қырғызстан операторларында жұмыс істейді',
           img: '/hero/hero-icon3.webp',
         },
       ],
     },
     about: {
       badge: 'КОМПАНИЯ ТУРАЛЫ',
-      title: 'ДӘЛДІККЕ АРНАЛҒАН',
-      accentTitle: 'ИНФРАҚҰРЫЛЫМ',
+      title: 'БИЗНЕСКЕ АРНАЛҒАН',
+      accentTitle: 'ТЕЛЕКОММУНИКАЦИЯ',
       description:
-        'Manata Logistics - халықаралық сапа стандарттарын сақтай отырып, дәрілік заттар мен медициналық жабдықтарды қауіпсіз сақтауға және өңдеуге арналған жоғары технологиялық кешен.',
+        'ЭлтексАлатау — операторлық деңгейдегі электроника және телекоммуникациялық жабдық өндірушісі. 12 жыл жұмыс барысында біздің жабдықтар Қазақстан, Өзбекстан және Қырғызстанның ірі операторлары желілерінде орнатылды.',
       cta: 'Компания туралы толығырақ',
       items: [
         {
-          title: 'Температуралық бақылау',
-          text: 'Белгіленген температуралық режимді сақтау',
+          title: 'Сапаны бақылау',
+          text: 'Өндірістің 3 сатылы сапаны бақылау жүйесі',
           icon: '/about/about1.svg',
         },
         {
-          title: 'Қауіпсіздік жүйесі',
-          text: 'Заманауи бақылау және қорғау жүйелері',
+          title: 'Ресми өкіл',
+          text: 'Қазақстандағы Eltex зауытының жалғыз ресми серіктесі',
           icon: '/about/about2.svg',
         },
         {
-          title: 'WMS жүйелері',
-          text: 'Қойма және логистикалық үдерістерді оңтайландыру',
+          title: 'Жергілікті өндіріс',
+          text: 'Алматыдағы «Алатау» АИП ЕЭА аумағындағы өндірістік кешен',
           icon: '/about/about3.svg',
         },
         {
-          title: 'Теміржол логистикасы',
-          text: 'Теміржол желілеріне тікелей қолжетімділік',
+          title: 'Мемлекеттік қолдау',
+          text: '«Самрұқ-Қазына» АҚ, ҚР БҒМ және басқа мемлекеттік құрылымдармен жұмыс істейміз',
           icon: '/about/about4.svg',
         },
       ],
@@ -159,67 +159,68 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'ТЕХНОЛОГИЯ. СЕНІМДІЛІК.',
       accentTitle: 'САПА.',
       description:
-        'Өнімдеріңіздің әр кезеңде сақталуын қамтамасыз ету үшін біз озық технологияларды қолданып, қатаң стандарттарды ұстанамыз.',
+        'Біз операторлық деңгейдегі телекоммуникациялық жабдықтарды әзірлеп, өндіреміз және тапсырыс берушінің инфрақұрылымына үздіксіз интеграцияны қамтамасыз етеміз.',
       items: [
         {
           title: [
-            { text: 'Автоматтандырылған ', accent: false },
-            { text: 'үдерістер', accent: false },
+            { text: 'Өз ', accent: false },
+            { text: 'өндірісіміз', accent: false },
           ],
           text: [
-            {
-              text: 'Қойманы басқару және операцияларды бақылауға арналған заманауи ',
-              accent: false,
-            },
-            { text: 'IT шешімдері', accent: true },
-            { text: '.', accent: false },
+            { text: 'Алматыдағы ', accent: false },
+            { text: '«Алатау» АИП ЕЭА ', accent: true },
+            { text: 'аумағында толық', accent: false },
+            { text: ' өндіріс циклі.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Заманауи ', accent: false },
-            { text: 'жабдық', accent: false },
+            { text: 'Кең ', accent: false },
+            { text: 'өнім желісі', accent: false },
           ],
           text: [
-            { text: 'Өнімдерді сақтау мен өңдеуге арналған жоғары технологиялық ', accent: false },
-            { text: 'жабдық', accent: true },
-            { text: '.', accent: false },
+            { text: 'Коммутаторлар, маршрутизаторлар, ', accent: false },
+            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
+            { text: 'және басқалары', accent: false },
+            { text: ' бір каталогта.', accent: false },
           ],
         },
         {
           title: [
             { text: 'Сапаны бақылау ', accent: false },
-            { text: 'әр кезеңде', accent: false },
+            { text: 'барлық кезеңде', accent: false },
           ],
           text: [
-            { text: 'Стандарттар мен талаптарға ', accent: false },
-            { text: 'сәйкестікті көпдеңгейлі бақылау', accent: true },
-            { text: '.', accent: false },
+            { text: 'Әр құрылғының ', accent: false },
+            { text: 'сапасын бақылаудың', accent: true },
+            { text: ' 3 сатылы жүйесі.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Энергияны үнемдейтін ', accent: true },
-            { text: 'шешімдер', accent: false },
+            { text: 'Қазақстандағы ', accent: true },
+            { text: 'локализация', accent: false },
           ],
           text: [
-            { text: 'Энергияны тиімді тұтыну және экологиялық технологиялар.', accent: false },
+            { text: 'Жабдықты елде тікелей ', accent: false },
+            { text: 'өндіру және қолдау —', accent: false },
+            { text: ' жылдам және сенімді.', accent: false },
           ],
         },
       ],
       stats: [
-        { title: '10+', text: 'жыл нарықта' },
-        { title: '200+', text: 'қанағаттанған клиент' },
-        { title: '99,9%', text: 'дәлдік пен сақталу' },
-        { title: '45 000 м²', text: 'кешен аумағы' },
+        { title: '12+', text: 'жыл нарықта' },
+        { title: '20+', text: 'балама провайдерлер' },
+        { title: '3', text: 'елде қатысу' },
+        { title: '2015', text: '«Алтын Сапа» сыйлығы' },
       ],
     },
   },
   ru: {
     metadata: {
-      title: 'Manata Logistics',
+      title: 'ЭлтексАлатау',
       description:
-        'Логистический комплекс класса A для хранения и обработки фармацевтической и медицинской продукции.',
+        'Казахстанский производитель электроники и современного телекоммуникационного оборудования. Единственный официальный представитель завода Eltex в Казахстане.',
     },
     header: {
       navLinks: [
@@ -235,52 +236,52 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       description:
-        'Современный логистический комплекс класса A для хранения и обработки лекарственных средств, медицинских изделий и оборудования.',
+        'ЭлтексАлатау — производитель электроники и современного телекоммуникационного оборудования. Единственный официальный представитель Новосибирского завода Элтекс в Казахстане. Компания основана в 2012 году.',
       cta: 'Связаться со специалистом',
       items: [
         {
-          title: 'GDP стандарт',
-          text: 'Высококачественные логистические услуги',
+          title: 'Производство в Алматы',
+          text: 'Производственный комплекс на территории СЭЗ ПИТ «Алатау»',
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: 'WMS-системы',
-          text: 'Интеллектуальное управление складскими процессами',
+          title: 'Премия «Алтын Сапа»',
+          text: 'Лауреат премии Президента РК в номинации «Лучший инновационный проект» 2015 года',
           img: '/hero/hero-icon2.webp',
         },
         {
-          title: 'Class A',
-          text: 'Международный стандарт складской недвижимости',
+          title: '3 страны присутствия',
+          text: 'Оборудование работает у операторов Казахстана, Узбекистана и Кыргызстана',
           img: '/hero/hero-icon3.webp',
         },
       ],
     },
     about: {
       badge: 'О КОМПАНИИ',
-      title: 'ИНФРАСТРУКТУРА ДЛЯ',
-      accentTitle: 'ТОЧНОСТИ',
+      title: 'ТЕЛЕКОММУНИКАЦИИ ДЛЯ',
+      accentTitle: 'БИЗНЕСА',
       description:
-        'Manata Logistics — это высокотехнологичный комплекс, созданный для безопасного хранения и обработки медикаментов и медицинского оборудования с соблюдением международных стандартов качества.',
+        'ЭлтексАлатау — казахстанский производитель электроники и телекоммуникационного оборудования операторского уровня. За 12 лет работы наше оборудование установлено на сетях крупнейших операторов Казахстана, Узбекистана и Кыргызстана.',
       cta: 'Подробнее о компании',
       items: [
         {
-          title: 'Температурный контроль',
-          text: 'Поддержание заданного температурного режима',
+          title: 'Контроль качества',
+          text: '3-х ступенчатая система контроля качества производства',
           icon: '/about/about1.svg',
         },
         {
-          title: 'Система безопасности',
-          text: 'Современные системы контроля и защиты',
+          title: 'Официальный представитель',
+          text: 'Единственный официальный партнёр завода Eltex в Казахстане',
           icon: '/about/about2.svg',
         },
         {
-          title: 'WMS-системы',
-          text: 'Оптимизация складских и логистических процессов',
+          title: 'Локальное производство',
+          text: 'Производственный комплекс на территории СЭЗ ПИТ «Алатау» в Алматы',
           icon: '/about/about3.svg',
         },
         {
-          title: 'ЖД логистика',
-          text: 'Прямой доступ к железнодорожным путям',
+          title: 'Господдержка',
+          text: 'Работаем с АО «Самрук-Қазына», МОН РК и другими госструктурами',
           icon: '/about/about4.svg',
         },
       ],
@@ -290,30 +291,30 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'ТЕХНОЛОГИИ. НАДЕЖНОСТЬ.',
       accentTitle: 'КАЧЕСТВО.',
       description:
-        'Мы используем передовые технологии и поддерживаем строгие стандарты, чтобы гарантировать сохранность вашей продукции на каждом этапе.',
+        'Мы разрабатываем и производим телекоммуникационное оборудование операторского уровня, обеспечивая бесшовную интеграцию в инфраструктуру заказчика.',
       items: [
         {
           title: [
-            { text: 'Автоматизированные ', accent: false },
-            { text: 'процессы', accent: false },
+            { text: 'Собственное ', accent: false },
+            { text: 'производство', accent: false },
           ],
           text: [
-            { text: 'Современные ', accent: false },
-            { text: 'IT-решения ', accent: true },
-            { text: 'для управления складом', accent: false },
-            { text: ' и контроля операций.', accent: false },
+            { text: 'Полный цикл ', accent: false },
+            { text: 'производства ', accent: true },
+            { text: 'на территории СЭЗ ПИТ «Алатау»', accent: false },
+            { text: ' в Алматы.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Современное ', accent: false },
-            { text: 'оборудование', accent: false },
+            { text: 'Широкая ', accent: false },
+            { text: 'продуктовая линейка', accent: false },
           ],
           text: [
-            { text: 'Высокотехнологичное ', accent: true },
-            { text: 'оборудование ', accent: false },
-            { text: 'для хранения', accent: false },
-            { text: ' и обработки продукции.', accent: false },
+            { text: 'Коммутаторы, маршрутизаторы, ', accent: false },
+            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
+            { text: 'и многое другое', accent: false },
+            { text: ' в одном каталоге.', accent: false },
           ],
         },
         {
@@ -322,35 +323,36 @@ const dictionaries: Record<Locale, Dictionary> = {
             { text: 'на всех этапах', accent: false },
           ],
           text: [
-            { text: 'Многоуровневый контроль ', accent: false },
-            { text: 'соответствия стандартам', accent: true },
-            { text: ' и требованиям.', accent: false },
+            { text: '3-х ступенчатая система ', accent: false },
+            { text: 'контроля качества', accent: true },
+            { text: ' каждого устройства.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Энергоэффективные ', accent: true },
-            { text: 'решения', accent: false },
+            { text: 'Локализация ', accent: true },
+            { text: 'в Казахстане', accent: false },
           ],
           text: [
-            { text: 'Экономичное потребление энергии ', accent: false },
-            { text: 'и экологичные технологии.', accent: false },
+            { text: 'Производство и поддержка ', accent: false },
+            { text: 'оборудования прямо в стране — ', accent: false },
+            { text: 'быстро и надёжно.', accent: false },
           ],
         },
       ],
       stats: [
-        { title: '10+', text: 'лет на рынке' },
-        { title: '200+', text: 'довольных клиентов' },
-        { title: '99,9%', text: 'точность и сохранность' },
-        { title: '45 000 м²', text: 'площадь комплекса' },
+        { title: '12+', text: 'лет на рынке' },
+        { title: '20+', text: 'альтернативных провайдеров' },
+        { title: '3', text: 'страны присутствия' },
+        { title: '2015', text: 'премия «Алтын Сапа»' },
       ],
     },
   },
   en: {
     metadata: {
-      title: 'Manata Logistics',
+      title: 'EltexAlatau',
       description:
-        'A Class A logistics complex for the storage and handling of pharmaceutical and medical products.',
+        'A Kazakhstani manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Eltex factory in Kazakhstan.',
     },
     header: {
       navLinks: [
@@ -366,52 +368,52 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       description:
-        'A modern Class A logistics complex for the storage and handling of pharmaceuticals, medical devices, and equipment.',
+        'EltexAlatau is a manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Novosibirsk Eltex factory in Kazakhstan. Founded in 2012.',
       cta: 'Contact a specialist',
       items: [
         {
-          title: 'GDP standard',
-          text: 'High-quality logistics services',
+          title: 'Production in Almaty',
+          text: 'Manufacturing facility located in the SEZ PIT «Alatau»',
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: 'WMS systems',
-          text: 'Intelligent warehouse process management',
+          title: '«Altyn Sapa» Award',
+          text: 'Winner of the President of Kazakhstan Award in the «Best Innovative Project» category, 2015',
           img: '/hero/hero-icon2.webp',
         },
         {
-          title: 'Class A',
-          text: 'International standard for warehouse real estate',
+          title: '3 countries of presence',
+          text: 'Equipment operating with operators in Kazakhstan, Uzbekistan and Kyrgyzstan',
           img: '/hero/hero-icon3.webp',
         },
       ],
     },
     about: {
       badge: 'ABOUT US',
-      title: 'INFRASTRUCTURE BUILT FOR',
-      accentTitle: 'PRECISION',
+      title: 'TELECOMMUNICATIONS FOR',
+      accentTitle: 'BUSINESS',
       description:
-        'Manata Logistics is a high-tech facility designed for the safe storage and handling of pharmaceuticals and medical equipment in compliance with international quality standards.',
+        'EltexAlatau is a Kazakhstani manufacturer of electronics and carrier-grade telecommunications equipment. Over 12 years, our equipment has been deployed across the networks of major operators in Kazakhstan, Uzbekistan and Kyrgyzstan.',
       cta: 'Learn more about the company',
       items: [
         {
-          title: 'Temperature control',
-          text: 'Maintaining specified temperature conditions',
+          title: 'Quality Control',
+          text: 'A 3-stage quality control system throughout production',
           icon: '/about/about1.svg',
         },
         {
-          title: 'Security system',
-          text: 'Modern monitoring and protection systems',
+          title: 'Official Representative',
+          text: 'The sole official partner of the Eltex factory in Kazakhstan',
           icon: '/about/about2.svg',
         },
         {
-          title: 'WMS systems',
-          text: 'Optimization of warehouse and logistics processes',
+          title: 'Local Manufacturing',
+          text: 'Production facility within the SEZ PIT «Alatau» in Almaty',
           icon: '/about/about3.svg',
         },
         {
-          title: 'Rail logistics',
-          text: 'Direct access to railway lines',
+          title: 'Government Partnership',
+          text: 'Working with Samruk-Kazyna JSC, Ministry of Education of Kazakhstan and other government bodies',
           icon: '/about/about4.svg',
         },
       ],
@@ -421,30 +423,30 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'TECHNOLOGY. RELIABILITY.',
       accentTitle: 'QUALITY.',
       description:
-        'We use advanced technologies and maintain strict standards to ensure the safety of your products at every stage.',
+        "We develop and manufacture carrier-grade telecommunications equipment, ensuring seamless integration into the customer's infrastructure.",
       items: [
         {
           title: [
-            { text: 'Automated ', accent: false },
-            { text: 'processes', accent: false },
+            { text: 'In-house ', accent: false },
+            { text: 'manufacturing', accent: false },
           ],
           text: [
-            { text: 'Modern ', accent: false },
-            { text: 'IT solutions ', accent: true },
-            { text: 'for warehouse management', accent: false },
-            { text: ' and operational control.', accent: false },
+            { text: 'Full production cycle ', accent: false },
+            { text: 'at the SEZ PIT «Alatau» ', accent: true },
+            { text: 'facility', accent: false },
+            { text: ' in Almaty.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Modern ', accent: false },
-            { text: 'equipment', accent: false },
+            { text: 'Broad ', accent: false },
+            { text: 'product lineup', accent: false },
           ],
           text: [
-            { text: 'High-tech ', accent: true },
-            { text: 'equipment ', accent: false },
-            { text: 'for product storage', accent: false },
-            { text: ' and handling.', accent: false },
+            { text: 'Switches, routers, ', accent: false },
+            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
+            { text: 'and more', accent: false },
+            { text: ' in one catalog.', accent: false },
           ],
         },
         {
@@ -453,27 +455,28 @@ const dictionaries: Record<Locale, Dictionary> = {
             { text: 'at every stage', accent: false },
           ],
           text: [
-            { text: 'Multi-level compliance monitoring ', accent: false },
-            { text: 'with standards', accent: true },
-            { text: ' and requirements.', accent: false },
+            { text: 'A 3-stage ', accent: false },
+            { text: 'quality assurance', accent: true },
+            { text: ' system for every device.', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Energy-efficient ', accent: true },
-            { text: 'solutions', accent: false },
+            { text: 'Localization ', accent: true },
+            { text: 'in Kazakhstan', accent: false },
           ],
           text: [
-            { text: 'Efficient energy consumption ', accent: false },
-            { text: 'and eco-friendly technologies.', accent: false },
+            { text: 'Equipment manufactured and supported ', accent: false },
+            { text: 'right in the country — ', accent: false },
+            { text: 'fast and reliable.', accent: false },
           ],
         },
       ],
       stats: [
-        { title: '10+', text: 'years on the market' },
-        { title: '200+', text: 'satisfied clients' },
-        { title: '99.9%', text: 'accuracy and safety' },
-        { title: '45,000 m²', text: 'facility area' },
+        { title: '12+', text: 'years on the market' },
+        { title: '20+', text: 'alternative providers' },
+        { title: '3', text: 'countries of presence' },
+        { title: '2015', text: '«Altyn Sapa» Award' },
       ],
     },
   },

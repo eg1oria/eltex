@@ -25,7 +25,7 @@ const contentByLocale: Record<Locale, ContactsContent> = {
     titleStart: 'Әрдайым байланыстамыз.',
     titleEnd: 'Ынтымақтастыққа дайынбыз',
     addressLabel: 'Мекенжай',
-    address: 'Первомайская өнеркәсіптік аймағы, 235В',
+    address: 'Алматы қ., Гумилев көш. 1, «Алатау» АИП ЕЭА',
     phoneOneLabel: 'Телефон 1',
     phoneTwoLabel: 'Телефон 2',
     emailOneLabel: 'E-MAIL 1',
@@ -37,7 +37,7 @@ const contentByLocale: Record<Locale, ContactsContent> = {
     titleStart: 'Всегда на связи.',
     titleEnd: 'Готовы к сотрудничеству',
     addressLabel: 'Адрес',
-    address: 'Первомайская промышленная зона, 235В',
+    address: 'г. Алматы, ул. Гумилев 1, СЭЗ ПИТ «Алатау»',
     phoneOneLabel: 'Телефон 1',
     phoneTwoLabel: 'Телефон 2',
     emailOneLabel: 'E-MAIL 1',
@@ -49,7 +49,7 @@ const contentByLocale: Record<Locale, ContactsContent> = {
     titleStart: 'Always in touch.',
     titleEnd: 'Ready to cooperate',
     addressLabel: 'Address',
-    address: 'Pervomayskaya industrial zone, 235V',
+    address: '1 Gumilev St., Almaty, SEZ PIT «Alatau»',
     phoneOneLabel: 'Phone 1',
     phoneTwoLabel: 'Phone 2',
     emailOneLabel: 'E-MAIL 1',
@@ -97,8 +97,8 @@ export default function Contacts({ locale }: ContactsProps) {
               <span className="text-xs text-gray-500 mb-1">{content.phoneOneLabel}</span>
               <a
                 href="tel:+79037181331"
-                className="text-sm font-semibold text-black hover:text-orange-500 transition-colors">
-                +7 903 718 1331
+                className="text-sm font-semibold text-black hover:text-[#353EEA] transition-colors">
+                +7 701 467 3649
               </a>
             </div>
 
@@ -107,8 +107,8 @@ export default function Contacts({ locale }: ContactsProps) {
               <span className="text-xs text-gray-500 mb-1">{content.phoneTwoLabel}</span>
               <a
                 href="tel:+77775105005"
-                className="text-sm font-semibold text-black underline hover:text-orange-500 transition-colors">
-                +7 777 510 50 05
+                className="text-sm font-semibold text-black underline hover:text-[#353EEA] transition-colors">
+                +7 701 765 4148
               </a>
             </div>
 
@@ -117,16 +117,8 @@ export default function Contacts({ locale }: ContactsProps) {
               <span className="text-xs text-gray-500 mb-1">{content.emailOneLabel}</span>
               <a
                 href="mailto:sergey.arutunov@htl.kz"
-                className="text-sm font-semibold text-black underline hover:text-orange-500 transition-colors">
-                sergey.arutunov@htl.kz
-              </a>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs text-gray-500 mb-1">{content.emailTwoLabel}</span>
-              <a
-                href="mailto:Oxana.Komissarova@htl.kz"
-                className="text-sm font-semibold text-black underline hover:text-orange-500 transition-colors">
-                Oxana.Komissarova@htl.kz
+                className="text-sm font-semibold text-black underline hover:text-[#353EEA] transition-colors">
+                post@eltexalatau.kz
               </a>
             </div>
           </div>

@@ -82,78 +82,78 @@ const contentByLocale: Record<Locale, ServicesContent> = {
     badge: 'Қызметтер',
     titleStart: 'ТОЛЫҚ',
     titleAccent: 'ЦИКЛДІ',
-    titleEnd: 'ЛОГИСТИКА',
+    titleEnd: 'ШЕШІМДЕР',
     description:
-      'Фармацевтикалық компанияларға арналған кешенді шешімдерді ұсынамыз: сақтау мен өңдеуден бастап кедендік сүйемелдеу мен препараттарды жоюға дейін.',
+      'Телекоммуникациялық кешенді шешімдерді ұсынамыз: жабдықты жеткізу мен өндіруден бастап жөндеу, оқыту және техникалық қолдауға дейін.',
     imageAlt: 'Қызметтер',
     items: [
-      { number: '01', title: 'Лицензияланған қоймада жауапты сақтау' },
-      { number: '04', title: 'Өнімді агрегациялау және сериализациялау' },
-      { number: '06', title: 'Кедендік-брокерлік қызметтер' },
-      { number: '03', title: 'Копакинг (таңбалау, лифлеттерді салу)' },
-      { number: '02', title: 'Уақытша сақтау қоймасы (УСҚ) және кеден қоймасы (КҚ)' },
-      { number: '05', title: 'Рұқсат құжаттарын алуға қолдау көрсету' },
-      { number: '07', title: 'Дәрілік заттарды жою' },
+      { number: '01', title: 'Телекоммуникациялық жабдықты өндіру және жеткізу' },
+      { number: '02', title: 'Келісімшарттық өндіріс' },
+      { number: '03', title: 'Жабдықты жөндеу және сервистік қызмет көрсету' },
+      { number: '04', title: 'Тестілеуге жабдық беру' },
+      { number: '05', title: 'Мамандарды оқыту және сертификаттау бағдарламалары' },
+      { number: '06', title: 'Техникалық мамандықтар студенттеріне тәжірибе' },
+      { number: '07', title: 'Жабдық кепілдігін тексеру' },
     ],
     imageLabels: [
-      { key: 'storage', title: 'GDP талаптарына сәйкес сақтау', meta: '2-8°C    15-25°C' },
-      { key: 'customs', title: 'Кеден қоймасы және уақытша сақтау қоймасы' },
-      { key: 'packing', title: 'Қаптау және таңбалау' },
-      { key: 'serialization', title: 'Сериализация және агрегация' },
-      { key: 'docs', title: 'Лицензиялар мен құжаттаманы қолдау' },
-      { key: 'disposal', title: 'Дәрілік заттарды жою' },
+      { key: 'storage', title: 'Өз өндірісіміз', meta: '«Алатау» АИП ЕЭА' },
+      { key: 'customs', title: 'Келісімшарттық өндіріс' },
+      { key: 'packing', title: 'Жабдықты жөндеу және сервис' },
+      { key: 'serialization', title: 'Жабдықты тестілеу' },
+      { key: 'docs', title: 'Оқыту және сертификаттау' },
+      { key: 'disposal', title: 'Кепілдікті қызмет көрсету' },
     ],
   },
   ru: {
     badge: 'Услуги',
-    titleStart: 'ЛОГИСТИКА',
+    titleStart: 'РЕШЕНИЯ',
     titleAccent: 'ПОЛНОГО',
     titleEnd: 'ЦИКЛА',
     description:
-      'Предоставляем комплексные решения для фармацевтических компаний — от хранения и обработки до таможенного сопровождения и утилизации препаратов.',
+      'Предоставляем комплексные телекоммуникационные решения — от поставки и производства оборудования до ремонта, обучения и технической поддержки.',
     imageAlt: 'Услуги',
     items: [
-      { number: '01', title: 'Ответственное хранение на лицензированном складе' },
-      { number: '04', title: 'Агрегация и сериализация продукции' },
-      { number: '06', title: 'Таможенно-брокерские услуги' },
-      { number: '03', title: 'Копакинг (маркировка, вложение лифлетов)' },
-      { number: '02', title: 'Склад временного хранения (СВХ) и таможенный склад (ТС)' },
-      { number: '05', title: 'Поддержка в получении разрешительной документации' },
-      { number: '07', title: 'Утилизация лекарственных средств' },
+      { number: '01', title: 'Производство и поставка телекоммуникационного оборудования' },
+      { number: '02', title: 'Контрактное производство' },
+      { number: '03', title: 'Ремонт и сервисное обслуживание оборудования' },
+      { number: '04', title: 'Предоставление оборудования на тестирование' },
+      { number: '05', title: 'Программы обучения и сертификации специалистов' },
+      { number: '06', title: 'Практика для студентов технических специальностей' },
+      { number: '07', title: 'Проверка гарантии оборудования' },
     ],
     imageLabels: [
-      { key: 'storage', title: 'Температурный режим', meta: '8-15°C' },
-      { key: 'customs', title: 'Таможенный склад и склад временного хранения' },
-      { key: 'packing', title: 'Упаковка и маркировка' },
-      { key: 'serialization', title: 'Сериализация и агрегация' },
-      { key: 'docs', title: 'Поддержка лицензий и документации' },
-      { key: 'disposal', title: 'Утилизация лекарственных средств' },
+      { key: 'storage', title: 'Собственное производство', meta: 'СЭЗ ПИТ «Алатау»' },
+      { key: 'customs', title: 'Контрактное производство' },
+      { key: 'packing', title: 'Ремонт и сервис оборудования' },
+      { key: 'serialization', title: 'Тестирование оборудования' },
+      { key: 'docs', title: 'Обучение и сертификация' },
+      { key: 'disposal', title: 'Гарантийное обслуживание' },
     ],
   },
   en: {
     badge: 'Services',
     titleStart: 'END-TO-END',
-    titleAccent: 'LOGISTICS',
+    titleAccent: 'SOLUTIONS',
     titleEnd: '',
     description:
-      'We provide end-to-end solutions for pharmaceutical companies, from storage and handling to customs support and product disposal.',
+      'We provide comprehensive telecommunications solutions — from equipment supply and manufacturing to repair, training and technical support.',
     imageAlt: 'Services',
     items: [
-      { number: '01', title: 'Responsible storage in a licensed warehouse' },
-      { number: '04', title: 'Product aggregation and serialization' },
-      { number: '06', title: 'Customs brokerage services' },
-      { number: '03', title: 'Copacking, labeling, and leaflet insertion' },
-      { number: '02', title: 'Temporary storage warehouse and bonded customs warehouse' },
-      { number: '05', title: 'Support in obtaining regulatory documentation' },
-      { number: '07', title: 'Pharmaceutical product disposal' },
+      { number: '01', title: 'Manufacturing and supply of telecommunications equipment' },
+      { number: '02', title: 'Contract manufacturing' },
+      { number: '03', title: 'Equipment repair and service maintenance' },
+      { number: '04', title: 'Equipment provided for testing' },
+      { number: '05', title: 'Training and certification programs for specialists' },
+      { number: '06', title: 'Internships for technical students' },
+      { number: '07', title: 'Equipment warranty verification' },
     ],
     imageLabels: [
-      { key: 'storage', title: 'GDP-compliant storage', meta: '2-8°C    15-25°C' },
-      { key: 'customs', title: 'Bonded customs and temporary storage warehouse' },
-      { key: 'packing', title: 'Packaging and labeling' },
-      { key: 'serialization', title: 'Serialization and aggregation' },
-      { key: 'docs', title: 'License and documentation support' },
-      { key: 'disposal', title: 'Pharmaceutical product disposal' },
+      { key: 'storage', title: 'In-house manufacturing', meta: 'SEZ PIT «Alatau»' },
+      { key: 'customs', title: 'Contract manufacturing' },
+      { key: 'packing', title: 'Equipment repair and service' },
+      { key: 'serialization', title: 'Equipment testing' },
+      { key: 'docs', title: 'Training and certification' },
+      { key: 'disposal', title: 'Warranty service' },
     ],
   },
 };
@@ -168,28 +168,28 @@ export default function Services({ locale }: ServicesProps) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="lg:col-span-1">
           <div className="mt-4 flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-[#F4450A]" />
+            <div className="h-2 w-2 rounded-full bg-[#353EEA]" />
             <h2 className="text-lg font-semibold text-black">{content.badge}</h2>
           </div>
           <h3 className="mt-4 flex flex-col gap-1 text-3xl font-semibold tracking-wide text-black sm:text-4xl lg:gap-2 lg:text-5xl">
-            {content.titleStart} <span className="text-[#F4450A]">{content.titleAccent}</span>{' '}
+            {content.titleStart} <span className="text-[#353EEA]">{content.titleAccent}</span>{' '}
             {content.titleEnd}
           </h3>
           <p className="mt-4 max-w-lg text-black">{content.description}</p>
-          <div className="mt-4 h-[2px] w-[30%] bg-[#F4450A]" />
+          <div className="mt-4 h-[2px] w-[30%] bg-[#353EEA]" />
 
           <ul className="mt-8 divide-y divide-black/10">
             {content.items.map((item) => (
               <li
                 key={item.number}
                 className="group grid cursor-pointer grid-cols-[2rem_minmax(0,1fr)_1.5rem] items-start gap-3 px-2 py-4 transition-colors duration-200 sm:grid-cols-[2.5rem_minmax(0,1fr)_2rem] sm:gap-4">
-                <span className="pt-0.5 text-sm font-bold text-[#F4450A] sm:text-base">
+                <span className="pt-0.5 text-sm font-bold text-[#353EEA] sm:text-base">
                   {item.number}
                 </span>
-                <p className="max-w-[18rem] text-2xl leading-7 text-black transition-colors duration-200 group-hover:text-[#F4450A] sm:max-w-none sm:text-lg">
+                <p className="max-w-[18rem] text-2xl leading-7 text-black transition-colors duration-200 group-hover:text-[#353EEA] sm:max-w-none sm:text-lg">
                   {item.title}
                 </p>
-                <IoIosArrowRoundForward className="place-self-center text-2xl text-black transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#F4450A]" />
+                <IoIosArrowRoundForward className="place-self-center text-2xl text-black transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#353EEA]" />
               </li>
             ))}
           </ul>

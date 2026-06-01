@@ -32,7 +32,7 @@ export default function Advantages({ locale }: AdvantagesProps) {
       {/* Контент поверх */}
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-4">
-          <div className="rounded-full bg-[#F4450A] w-2 h-2 shrink-0" />
+          <div className="rounded-full bg-[#353EEA] w-2 h-2 shrink-0" />
           <h2 className="text-sm sm:text-lg font-semibold text-white tracking-widest">{badge}</h2>
         </div>
 
@@ -42,7 +42,7 @@ export default function Advantages({ locale }: AdvantagesProps) {
           <div className="[@media(min-width:1400px)]:max-w-md flex flex-col gap-4 lg:gap-8 shrink-0">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-wide flex flex-col gap-1 lg:gap-2">
               {title}
-              <span className="text-[#F4450A]">{accentTitle}</span>
+              <span className="text-[#353EEA]">{accentTitle}</span>
             </h3>
             <p className="text-gray-300 text-sm sm:text-base max-w-lg">{description}</p>
           </div>
@@ -50,19 +50,19 @@ export default function Advantages({ locale }: AdvantagesProps) {
           {/* Правая колонка — карточки и статистика */}
           <div className="flex flex-col">
             {/* Карточки: 1 колонка на мобайле, 2 на sm, 4 на lg */}
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 border-b-2 border-[#F4450A] pb-8 lg:pb-16">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 border-b-2 border-[#353EEA] pb-8 lg:pb-16">
               {items.map((item, index) => (
                 <li key={index} className="flex flex-col items-start gap-2 lg:gap-3">
                   <h4 className="text-base lg:text-lg font-semibold text-white">
                     {item.title.map((part, i) => (
-                      <span key={i} className={part.accent ? 'text-[#F4450A]' : ''}>
+                      <span key={i} className={part.accent ? 'text-[#353EEA]' : ''}>
                         {part.text}
                       </span>
                     ))}
                   </h4>
                   <p className="text-gray-300 text-sm">
                     {item.text.map((part, i) => (
-                      <span key={i} className={part.accent ? 'text-[#F4450A]' : ''}>
+                      <span key={i} className={part.accent ? 'text-[#353EEA]' : ''}>
                         {part.text}
                       </span>
                     ))}
@@ -75,7 +75,7 @@ export default function Advantages({ locale }: AdvantagesProps) {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-8 lg:mt-12 mb-12 sm:mb-14 lg:mb-0">
               {stats.map((item, index) => (
                 <div key={index} className="flex flex-col items-start">
-                  <h4 className="text-3xl sm:text-4xl lg:text-5xl text-[#F4450A] font-bold">
+                  <h4 className="text-3xl sm:text-4xl lg:text-5xl text-[#353EEA] font-bold">
                     {item.title}
                   </h4>
                   <p className="text-gray-300 text-sm">{item.text}</p>

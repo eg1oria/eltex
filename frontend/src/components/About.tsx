@@ -18,14 +18,14 @@ export default function About({ locale }: AboutProps) {
       className="bg-cover bg-center bg-no-repeat px-4 sm:px-8 md:px-16 lg:px-36 py-10 lg:py-16"
       style={{ backgroundImage: "url('/about/bg.webp')" }}>
       <div className="flex items-center gap-2">
-        <div className="rounded-full bg-[#F4450A] w-2 h-2" />
+        <div className="rounded-full bg-[#353EEA] w-2 h-2" />
         <h2 className="text-lg font-semibold text-black">{badge}</h2>
       </div>
 
       <div className="mt-4 grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-16">
         <div>
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black tracking-wide mt-4">
-            {title} <span className="text-[#F4450A]">{accentTitle}</span>
+            {title} <span className="text-[#353EEA]">{accentTitle}</span>
           </h3>
           <div className="mt-4 max-w-xl flex flex-col gap-4">
             <p className="text-black">{description}</p>

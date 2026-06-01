@@ -88,23 +88,9 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
 
         <div className="relative z-10 flex items-center justify-between">
           {/* Логотип */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-1 shrink-0 cursor-pointer">
-              <Image
-                src="/header-logo.png"
-                width={44}
-                height={44}
-                alt="logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px]"
-              />
-              <div className="flex flex-col leading-tight">
-                <p className="font-extrabold text-base sm:text-lg lg:text-xl leading-tight">
-                  MANATA
-                </p>
-                <span className="font-semibold text-sm sm:text-base lg:text-lg leading-tight">
-                  LOGISTICS
-                </span>
-              </div>
+              <Image src="/header-logo2.png" width={250} height={44} alt="logo" />
             </Link>
 
             {/* Desktop навигация */}
@@ -114,10 +100,8 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
                   <li key={link.label}>
                     <Link
                       href={headerLinkHrefs[index] ?? '/'}
-                      onClick={(event) =>
-                        handleAnchorClick(event, headerLinkHrefs[index] ?? '/')
-                      }
-                      className="text-base xl:text-lg cursor-pointer hover:text-[#FF5A1F] transition-colors duration-200 whitespace-nowrap">
+                      onClick={(event) => handleAnchorClick(event, headerLinkHrefs[index] ?? '/')}
+                      className="text-base xl:text-lg cursor-pointer hover:text-[#353EEA] transition-colors duration-200 whitespace-nowrap">
                       {link.label}
                     </Link>
                   </li>
@@ -132,7 +116,7 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
             <Link
               href="#contacts"
               onClick={(event) => handleAnchorClick(event, '#contacts')}
-              className="px-4 py-1 border border-[#FF5A1F] text-white rounded-full hover:bg-[#FF5A1F] transition-colors duration-200 whitespace-nowrap cursor-pointer">
+              className="px-4 py-1 border border-[#353EEA] text-white rounded-full hover:bg-[#353EEA] transition-colors duration-200 whitespace-nowrap cursor-pointer">
               {requestCta}
             </Link>
           </div>
@@ -179,7 +163,7 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
                 <Link
                   href={headerLinkHrefs[index] ?? '/'}
                   onClick={(event) => handleAnchorClick(event, headerLinkHrefs[index] ?? '/')}
-                  className="block w-full py-4 text-left text-lg text-white border-b border-white/10 hover:text-[#FF5A1F] transition-colors duration-200 cursor-pointer touch-manipulation">
+                  className="block w-full py-4 text-left text-lg text-white border-b border-white/10 hover:text-[#353EEA] transition-colors duration-200 cursor-pointer touch-manipulation">
                   {link.label}
                 </Link>
               </li>
@@ -191,7 +175,7 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
           <Link
             href="#contacts"
             onClick={(event) => handleAnchorClick(event, '#contacts')}
-            className="block w-full py-3 border border-[#FF5A1F] text-center text-white rounded-full hover:bg-[#FF5A1F] transition-colors duration-200 text-base font-medium touch-manipulation">
+            className="block w-full py-3 border border-[#353EEA] text-center text-white rounded-full hover:bg-[#353EEA] transition-colors duration-200 text-base font-medium touch-manipulation">
             {requestCta}
           </Link>
         </div>

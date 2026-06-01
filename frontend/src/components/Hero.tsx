@@ -15,7 +15,7 @@ export default function Hero({ locale }: HeroProps) {
   return (
     <section className="relative flex items-start px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-12 md:px-16 md:pt-32 md:pb-14 lg:min-h-screen lg:items-center lg:px-36 lg:py-16">
       <Image
-        src={'/hero/hero.webp'}
+        src={'/hero-bg2.jpeg'}
         fill
         alt="Hero Image"
         className="object-cover"
@@ -35,12 +35,12 @@ export default function Hero({ locale }: HeroProps) {
       <div className="flex w-full flex-col gap-8 sm:gap-9 lg:gap-16">
         <div className="flex flex-col gap-4 lg:gap-6">
           <h1 className="flex flex-col text-4xl font-extrabold leading-none tracking-wider sm:text-6xl md:text-7xl lg:text-9xl lg:leading-tight">
-            MANATA <span className="text-[#FF5A1F] leading-[1.2] tracking-wider">LOGISTICS</span>
+            ELTEX <span className="text-[#353EEA] leading-[1.2] tracking-wider">ALATAU</span>
           </h1>
           <p className="max-w-sm text-sm text-white/80 sm:text-base md:max-w-lg lg:text-lg">
             {description}
           </p>
-          <button className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#FF5A1F] px-5 py-3 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-4 lg:text-base">
+          <button className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-3 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-4 lg:text-base">
             {cta} <MdOutlineKeyboardArrowRight size={24} />
           </button>
         </div>
@@ -48,7 +48,14 @@ export default function Hero({ locale }: HeroProps) {
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:flex lg:gap-4">
           {items.map((item, index) => (
             <li className="flex items-center gap-3 sm:max-w-[240px] lg:max-w-xs" key={index}>
-              <Image src={item.img} width={48} height={40} alt={item.title} className="shrink-0" style={{ width: 'auto' }} />
+              <Image
+                src={item.img}
+                width={48}
+                height={40}
+                alt={item.title}
+                className="shrink-0"
+                style={{ width: 'auto' }}
+              />
               <div className="flex flex-col gap-1">
                 <span className="text-white font-medium text-base lg:text-xl">{item.title}</span>
                 <p className="text-xs lg:text-sm text-white/80">{item.text}</p>
