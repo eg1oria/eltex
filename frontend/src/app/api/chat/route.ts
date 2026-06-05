@@ -59,6 +59,9 @@ const SYS = `Ты AI-консультант компании ЭлтексАла�
 
 export async function POST(req: Request) {
   const apiKey = process.env.OPENAI_API_KEY;
+  console.log('API key exists:', !!apiKey);
+  console.log('API key prefix:', apiKey?.slice(0, 10));
+  console.log('API key length:', apiKey?.length);
   if (!apiKey) {
     return NextResponse.json({ error: 'API key not set' }, { status: 500 });
   }
