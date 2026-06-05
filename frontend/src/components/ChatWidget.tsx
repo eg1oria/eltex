@@ -8,70 +8,27 @@ const TG_CHAT_ID: string = '-5216799241';
 const SITE: string = 'eltexalatau.kz';
 const TG_ON: boolean = TG_TOKEN !== '';
 
-// 🔑 ВСТАВЬТЕ СЮДА ВАШ КЛЮЧ OPENAI
-const OPENAI_API_KEY: string =
-  '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';
+async function callAI(history: { role: string; content: string }[]): Promise<string> {
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ history }),
+    });
 
-// Модель: gpt-4o-mini — быстрая и дешёвая, или замените на gpt-4o / gpt-4-turbo
-const OPENAI_MODEL: string = 'gpt-4o-mini';
+    if (!res.ok) {
+      if (res.status === 401) return '⚠️ Ошибка авторизации OpenAI. Проверьте API ключ.';
+      if (res.status === 429) return 'Слишком много запросов. Попробуйте через несколько секунд.';
+      return fallback(history.at(-1)?.content ?? '');
+    }
 
-const SYS = `Ты AI-консультант компании ЭлтексАлатау (Алматы, Казахстан), официального представителя завода Eltex.
-
-Твоя главная задача — консультировать клиентов строго по официальному каталогу продуктов компании eltexalatau.kz .
-
-ОФИЦИАЛЬНЫЙ КАТАЛОГ ПРОДУКТОВ:
-
-1. ОБОРУДОВАНИЕ xPON:
-   • 10G-PON: Станционное OLT и абонентское оборудование ONT 10G-PON.
-   • GPON: Станционное и абонентское оборудование GPON.
-   • Комплектующие: SFP модули PON, Лицензии (программные опции EMS).
-
-2. ETHERNET КОММУТАТОРЫ MES:
-   • Доступ: Коммутаторы доступа PoE, Коммутаторы доступа 1G/2.5G/10G, Коммутаторы доступа 100M.
-   • Агрегация и Ядро: Коммутаторы агрегации 1G/10G, Коммутаторы ядра/ЦОД 10G/25G/40G/100G/400G.
-   • Промышленные: Специализированные промышленные коммутаторы.
-   • Опции: Модули питания PM, Лицензии (программные опции по настройке и мониторингу ECCM).
-
-3. МАРШРУТИЗАТОРЫ ESR И ME:
-   • Сервисные маршрутизаторы ESR, Виртуальный сервисный маршрутизатор vESR, Маршрутизаторы ядра сети.
-   • Лицензии (программные опции по настройке и мониторингу).
-
-4. УСТРОЙСТВА ЭЛЕКТРОПИТАНИЯ.
-
-5. БЕСПРОВОДНОЙ ДОСТУП WI-FI, LTE:
-   • Wi-Fi: Точки доступа INDOOR (для помещений) и OUTDOOR (уличные), Wi-Fi контроллеры.
-   • БШПД: Радиомосты. Базовые и абонентские станции широкополосного доступа, Антенны и комплектующиеn.
-
-6. VOIP ТЕЛЕФОНИЯ:
-   • Аппараты и АТС: IP телефоны, IP-ATC.
-   • Шлюзы: Абонентские шлюзы (1-8 портов FXS, 16-72 портов FXS), Интегрированные устройства, Транковые шлюзы.
-   • Безопасность и опции: Пограничные контроллеры сессий SBC, Программные опции, Кроссовое оборудование, Лицензии (программные опции VoIP).
-
-7. SOFTSWITCH (ПРОГРАММНЫЙ КОММУТАТОР) И СЕРВИСЫ:
-   • Лицензии / опции Softswitch: Call-центр, Телеконференция, Автообзвон, Autoprovision, Security-interface, REC, IVR, Сервисы, Приложения UC, Резервирование, СОРМ, Антифрод.
-
-8. IPTV МЕДИАЦЕНТРЫ:
-   • Медиацентры на Android, Пульты.
-
-9. IOT И АВТОМАТИЗАЦИЯ:
-   • IoT-платформа, Контроллеры умного дома, Исполнительные устройства, Умные датчики, Регистраторы, Конвертеры, Промышленные контроллеры.
-
-10. SFP МОДУЛИ FH, КАБЕЛИ:
-    • Модули: SFP 155 Мбит/с, SFP 1 Gb (1 волокно SC/LC, 2 волокна), SFP+ 10 Gb (1 и 2 волокна), QSFP+, SFP28 25G, QSFP28 100 Гбит/с, Медные SFP | RJ-45.
-    • Кабели: Кабели DAC и AOC (Direct Attach, Active Optical).
-
-Контакты компании: 📞 +7 727 339-76-10 | +7 701 467-36-49
-Официальный сайт: eltexalatau.kz
-
-ПРАВИЛА ДИАЛОГА:
-- Отвечай коротко и экспертно (2–4 предложения), в профессиональном тоне.
-- Используй язык клиента (русский или казахский).
-- Если клиент ищет конкретное решение (например, шлюз на 24 порта), подтверди, что в категории VoIP телефонии есть "Телефонные шлюзы 16-72 портов FXS", и предложи соединить с менеджером.
-- Цены и точное наличие на складе не называй. По любому запросу цены уточняй решистрацию проекта. 
-Пиши: "Для уточнения цены и подбора спецификации уточните информацию".
-Задачай вопросы касательно проекта. Пиши:"Укажите конечного заказчика? Название проекта ? Город реализации проекта? Срок закупа? Список оборудования и количество?
-- Если клиент запрашивает менеджера, предоставь контактный номер +7 701 467-36-49 и предложи связаться напрямую, а также сообщи, что менеджер свяжется в ближайшее время.`;
-
+    const data = await res.json();
+    return data.text || fallback(history.at(-1)?.content ?? '');
+  } catch (err) {
+    console.error('callAI error:', err);
+    return fallback(history.at(-1)?.content ?? '');
+  }
+}
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
   role: 'user' | 'bot';
@@ -138,62 +95,6 @@ async function tgSend(text: string) {
     return false;
   }
 }
-
-// ─── OpenAI API ───────────────────────────────────────────────────────────────
-async function callAI(history: { role: string; content: string }[]): Promise<string> {
-  if (!OPENAI_API_KEY || OPENAI_API_KEY.startsWith('sk-ЗАМЕНИТЕ')) {
-    console.warn('OpenAI API key not set, using fallback');
-    return fallback(history.at(-1)?.content ?? '');
-  }
-
-  try {
-    // Формируем массив сообщений для OpenAI:
-    // system prompt идёт первым элементом с role: "system"
-    const messages = [
-      { role: 'system', content: SYS },
-      // Берём последние 10 сообщений из истории и маппим роли
-      ...history.slice(-10).map((m) => ({
-        role: m.role === 'bot' ? 'assistant' : 'user',
-        content: m.content,
-      })),
-    ];
-
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: OPENAI_MODEL,
-        max_tokens: 450,
-        temperature: 0.7,
-        messages,
-      }),
-    });
-
-    if (!res.ok) {
-      const errData = await res.json().catch(() => ({}));
-      console.error('OpenAI API error:', res.status, errData);
-      // Если 401 — неверный ключ, если 429 — лимит
-      if (res.status === 401) return '⚠️ Ошибка авторизации OpenAI. Проверьте API ключ.';
-      if (res.status === 429) return 'Слишком много запросов. Попробуйте через несколько секунд.';
-      return fallback(history.at(-1)?.content ?? '');
-    }
-
-    const d = await res.json();
-
-    // OpenAI возвращает ответ в choices[0].message.content
-    const text = d?.choices?.[0]?.message?.content;
-    if (text) return text.trim();
-
-    throw new Error('no content in response');
-  } catch (err) {
-    console.error('callAI error:', err);
-    return fallback(history.at(-1)?.content ?? '');
-  }
-}
-
 // ─── Quick chips data ─────────────────────────────────────────────────────────
 const QUICK_CHIPS = [
   { label: '💰 Цены', text: 'Цены на коммутаторы?' },
