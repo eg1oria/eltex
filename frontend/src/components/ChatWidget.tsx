@@ -121,18 +121,33 @@ export default function ChatWidget() {
   const apiHistory = useRef<{ role: string; content: string }[]>([]);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Welcome message
+  // Welcome messages
   useEffect(() => {
-    const t = setTimeout(() => {
+    const t1 = setTimeout(() => {
       setMessages([
         {
           role: 'bot',
-          text: 'Здравствуйте! 👋\n\nЯ AI-консультант ЭлтексАлатау. Отвечу на вопросы по коммутаторам, GPON, Wi-Fi, VoIP оборудованию.\n\nЧем могу помочь?',
+          text: 'Здравствуйте! 👋\n\nЯ AI-консультант Eltex. Отвечу на вопросы по коммутаторам, GPON, Wi-Fi, VoIP оборудованию.\n\nЧем могу помочь?',
           time: nowTime(),
         },
       ]);
     }, 600);
-    return () => clearTimeout(t);
+
+    const t2 = setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'bot',
+          text: 'Уточните ваше Имя и номер мобильного телефона?',
+          time: nowTime(),
+        },
+      ]);
+    }, 1400);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   // Scroll to bottom on new messages

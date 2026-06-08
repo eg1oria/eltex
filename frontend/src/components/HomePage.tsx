@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n';
 import ChatWidget from '@/components/ChatWidget'; // ← добавить импорт
+import Services from './Services';
 
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
@@ -25,11 +26,11 @@ export default function HomePage() {
       <Hero locale={locale} />
       <About locale={locale} />
       <Advantages locale={locale} />
-      {/* <Services locale={locale} />
-      <Infrastructure locale={locale} />
+      <Services locale={locale} />
+      {/*<Infrastructure locale={locale} />
       <Achievements locale={locale} />
       <Contacts locale={locale} />
-      <Footer locale={locale} /> */}
+      <Footer locale={locale} />
 
       {/* AI-консультант — фиксированный на всех страницах */}
       <ChatWidget />
