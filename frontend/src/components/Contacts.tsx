@@ -63,7 +63,6 @@ export default function Contacts({ locale }: ContactsProps) {
   return (
     <section id="contacts" className="md:px-0 px-0 py-8 lg:py-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-start border bo border-gray-400 overflow-hidden">
-        {/* Левая часть — изображение */}
         <div className="relative w-full h-[300px] lg:h-[480px] rounded-br-lg rounded-bl-lg lg:rounded-bl-none lg:rounded-tr-lg overflow-hidden">
           <Image
             src="/contacts-img.webp"
@@ -74,7 +73,6 @@ export default function Contacts({ locale }: ContactsProps) {
           />
         </div>
 
-        {/* Правая часть — контакты */}
         <div className="flex flex-col gap-3 md:px-4 px-4 py-4">
           <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
             {content.badge}
@@ -86,13 +84,11 @@ export default function Contacts({ locale }: ContactsProps) {
           </h2>
 
           <div className="flex flex-col gap-5 mt-4">
-            {/* Адрес */}
             <div className="flex flex-col">
               <span className="text-xs text-gray-500 mb-1">{content.addressLabel}</span>
               <span className="text-sm font-semibold text-black">{content.address}</span>
             </div>
 
-            {/* Телефон 1 */}
             <div className="flex flex-col">
               <span className="text-xs text-gray-500 mb-1">{content.phoneOneLabel}</span>
               <a
@@ -102,7 +98,6 @@ export default function Contacts({ locale }: ContactsProps) {
               </a>
             </div>
 
-            {/* Телефон 2 */}
             <div className="flex flex-col">
               <span className="text-xs text-gray-500 mb-1">{content.phoneTwoLabel}</span>
               <a
@@ -112,7 +107,6 @@ export default function Contacts({ locale }: ContactsProps) {
               </a>
             </div>
 
-            {/* Email */}
             <div className="flex flex-col">
               <span className="text-xs text-gray-500 mb-1">{content.emailOneLabel}</span>
               <a

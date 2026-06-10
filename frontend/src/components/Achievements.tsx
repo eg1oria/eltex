@@ -88,7 +88,6 @@ export default function Achievements({ locale }: AchievementsProps) {
   return (
     <section id="companies" className=" px-4 sm:px-10 lg:px-36 py-12 lg:py-16">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 items-start">
-        {/* Заголовок блока */}
         <div>
           <div className="flex items-center gap-3 mb-4">
             <h2 className="text-black  text-3xl font-bold tracking-wider uppercase">
@@ -100,8 +99,6 @@ export default function Achievements({ locale }: AchievementsProps) {
             {content.description}
           </p>
         </div>
-
-        {/* Цифры */}
         {content.stats.map((stat, i) => (
           <div key={i} className="flex flex-col">
             <span className="text-4xl lg:text-5xl font-bold text-[#353EEA] mb-4">{stat.value}</span>

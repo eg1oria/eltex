@@ -37,7 +37,6 @@ export default function About({ locale }: AboutProps) {
               key={index}
               className="flex min-h-32 items-center gap-3 rounded-lg bg-white p-4 lg:p-6"
               style={{ boxShadow: '0px 2px 7px 0px rgba(34, 60, 80, 0.2)' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.icon} width={52} height={52} alt={item.title} className="shrink-0" />
               <div className="min-w-0">
                 <h4 className="font-semibold text-black">{item.title}</h4>

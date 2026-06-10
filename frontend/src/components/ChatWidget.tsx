@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-// ─── Config ───────────────────────────────────────────────────────────────────
 const TG_TOKEN: string = '8507762662:AAHJ2fdVvTXZrOlhYkiujA54pnoK3Ho0AYs';
 const TG_CHAT_ID: string = '-5216799241';
 const SITE: string = 'eltexalatau.kz';
@@ -29,14 +28,12 @@ async function callAI(history: { role: string; content: string }[]): Promise<str
     return fallback(history.at(-1)?.content ?? '');
   }
 }
-// ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
   role: 'user' | 'bot';
   text: string;
   time: string;
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 function nowTime() {
   return new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
 }
@@ -76,7 +73,6 @@ function fallback(q: string): string {
   return 'Спасибо за вопрос! Для подбора оборудования под ваше ТЗ обратитесь к менеджеру:\n📞 +7 727 339-76-10\n🌐 eltexalatau.kz';
 }
 
-// ─── Telegram ─────────────────────────────────────────────────────────────────
 async function tgSend(text: string) {
   if (!TG_ON) return false;
   try {
@@ -95,7 +91,6 @@ async function tgSend(text: string) {
     return false;
   }
 }
-// ─── Quick chips data ─────────────────────────────────────────────────────────
 const QUICK_CHIPS = [
   { label: '💰 Цены', text: 'Цены на коммутаторы?' },
   { label: '📦 Каталог', text: 'Какое оборудование есть?' },
@@ -103,7 +98,6 @@ const QUICK_CHIPS = [
   { label: '📡 Wi-Fi', text: 'Нужны Wi-Fi точки доступа' },
 ];
 
-// ─── Component ────────────────────────────────────────────────────────────────
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -121,7 +115,6 @@ export default function ChatWidget() {
   const apiHistory = useRef<{ role: string; content: string }[]>([]);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Welcome messages
   useEffect(() => {
     const t1 = setTimeout(() => {
       setMessages([
@@ -150,14 +143,12 @@ export default function ChatWidget() {
     };
   }, []);
 
-  // Scroll to bottom on new messages
   useEffect(() => {
     if (msgsRef.current) {
       msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
-  // Focus input when opened
   useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 120);
@@ -477,13 +468,10 @@ export default function ChatWidget() {
       `}</style>
 
       <div className="cw-root">
-        {/* Pulse ring — only when closed */}
         {!open && <div className="cw-ring" />}
 
-        {/* Unread badge */}
         {showBadge && !open && <div className="cw-badge">1</div>}
 
-        {/* FAB */}
         <button
           className="cw-fab"
           onClick={open ? handleClose : handleOpen}
@@ -499,9 +487,7 @@ export default function ChatWidget() {
           )}
         </button>
 
-        {/* Chat window */}
         <div className={`cw-win${open ? ' cw-open' : ''}`}>
-          {/* Header */}
           <div className="cw-head">
             <div className="cw-ava">⚡</div>
             <div className="cw-head-info">
@@ -519,7 +505,6 @@ export default function ChatWidget() {
             </button>
           </div>
 
-          {/* Messages */}
           <div className="cw-msgs" ref={msgsRef}>
             <div className="cw-date-div">
               <span>Сегодня</span>
@@ -535,7 +520,6 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* Typing indicator */}
             {loading && (
               <div className="cw-row bot cw-typing">
                 <div className="cw-msg-ava">⚡</div>
@@ -550,7 +534,6 @@ export default function ChatWidget() {
             )}
           </div>
 
-          {/* Quick chips */}
           {showQuick && (
             <div className="cw-quick">
               {QUICK_CHIPS.map((chip) => (
@@ -564,7 +547,6 @@ export default function ChatWidget() {
             </div>
           )}
 
-          {/* Input */}
           <div className="cw-input-area">
             <textarea
               ref={inputRef}
@@ -593,7 +575,6 @@ export default function ChatWidget() {
           <div className="cw-foot">eltexalatau.kz · Powered by GPT-4o</div>
         </div>
 
-        {/* Toast */}
         {toast && (
           <div className="cw-toast">
             <span>{toast.icon}</span>

@@ -87,13 +87,11 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
         />
 
         <div className="relative z-10 flex items-center justify-between">
-          {/* Логотип */}
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-1 shrink-0 cursor-pointer">
               <Image src="/header-logo2.png" width={250} height={44} alt="logo" />
             </Link>
 
-            {/* Desktop навигация */}
             <nav className="hidden lg:block">
               <ul className="flex items-center gap-6 xl:gap-8">
                 {navLinks.map((link, index) => (
@@ -110,7 +108,6 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
             </nav>
           </div>
 
-          {/* Desktop правая часть */}
           <div className="hidden lg:flex items-center gap-4">
             <LocaleSwitcher locale={locale} onSelect={onSelectLocale} />
             <Link
@@ -121,7 +118,6 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Mobile: язык + бургер */}
           <div className="flex lg:hidden items-center gap-2">
             <LocaleSwitcher locale={locale} onSelect={onSelectLocale} />
             <button
@@ -135,7 +131,6 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
         </div>
       </header>
 
-      {/* Mobile меню — оверлей */}
       <div
         className={`fixed inset-0 z-40 bg-black/60 transition-opacity duration-300 lg:hidden ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -143,7 +138,6 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
         onClick={closeMobileMenu}
       />
 
-      {/* Mobile меню — панель */}
       <div
         className={`fixed top-0 right-0 z-[60] h-full w-72 sm:w-80 bg-[#0a0a0a] border-l border-white/10 flex flex-col pt-20 px-6 pb-8 transition-transform duration-300 ease-in-out lg:hidden ${
           menuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
