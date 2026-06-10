@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EltexAlatau — Портфолио проекта</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --blue: #353eea;
+        --blue-dim: #353eea22;
+        --black: #0c0c0e;
+        --gray-9: #111214;
+        --gray-8: #1a1a1e;
+        --gray-7: #242428;
+        --gray-4: #6b6b7a;
+        --gray-2: #aeaebb;
+        --gray-1: #e8e8ee;
+        --white: #ffffff;
+        --slide-w: 1200px;
+        --slide-h: 675px;
+        --radius: 12px;
+      }
+
+      html {
+        background: #ffffff;
+        font-family: 'Inter', sans-serif;
+      }
+      body {
+        color: var(--white);
+        padding: 0;
+      }
+
+      /* ── CONTROLS ── */
+      #controls {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+        background: rgba(9, 9, 9, 0.9);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      #controls .brand {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--gray-2);
+        text-transform: uppercase;
+      }
+      #controls .nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      #controls button {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        border-radius: 8px;
+        padding: 7px 16px;
+        font-size: 13px;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      #controls button:hover {
+        background: var(--blue);
+        border-color: var(--blue);
+      }
+      #controls button:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+      #controls button:disabled:hover {
+        background: var(--gray-8);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      #slide-counter {
+        font-size: 13px;
+        color: var(--gray-4);
+        min-width: 60px;
+        text-align: center;
+      }
+      #print-btn {
+        background: transparent;
+        border: 1px solid var(--blue);
+        color: var(--blue);
+      }
+      #print-btn:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      /* ── VIEWPORT ── */
+      #viewport {
+        margin-top: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 56px);
+        padding: 40px 24px;
+      }
+
+      /* ── SLIDE WRAPPER ── */
+      .slides {
+        width: 100%;
+        max-width: var(--slide-w);
+        position: relative;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        position: relative;
+        box-shadow:
+          0 32px 80px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+      .slide.active {
+        display: flex;
+      }
+
+      /* ── THUMBNAILS ── */
+      #thumbs {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px 24px 40px;
+        max-width: var(--slide-w);
+        margin: 0 auto;
+      }
+      .thumb {
+        width: 88px;
+        height: 49px;
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        background: var(--gray-8);
+        transition: all 0.2s;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: var(--gray-4);
+      }
+      .thumb:hover {
+        border-color: rgba(53, 62, 234, 0.5);
+      }
+      .thumb.active {
+        border-color: var(--blue);
+      }
+
+      /* ══════════════════════════════
+     SLIDE DESIGNS
+  ══════════════════════════════ */
+
+      /* ── SLIDE 1: COVER ── */
+      #s1 {
+        background: var(--black);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 7% 8%;
+      }
+      #s1 .eyebrow {
+        font-size: clamp(9px, 1.1vw, 13px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5%;
+      }
+      #s1 .eyebrow::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--blue);
+        max-width: 60px;
+        opacity: 0.5;
+      }
+      #s1 h1 {
+        font-size: clamp(28px, 5.5vw, 66px);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+      #s1 h1 span {
+        color: var(--blue);
+      }
+      #s1 .sub {
+        margin-top: 4%;
+        font-size: clamp(11px, 1.4vw, 16px);
+        color: var(--gray-2);
+        max-width: 55%;
+        line-height: 1.6;
+      }
+      #s1 .meta {
+        margin-top: 7%;
+        display: flex;
+        gap: 5%;
+        font-size: clamp(9px, 0.9vw, 11px);
+        color: var(--gray-4);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      #s1 .meta strong {
+        display: block;
+        color: var(--gray-1);
+        font-size: clamp(10px, 1.1vw, 13px);
+        font-weight: 500;
+        letter-spacing: 0;
+        text-transform: none;
+        margin-top: 4px;
+      }
+      #s1 .bg-line {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 38%;
+        background: linear-gradient(135deg, transparent 0%, #353eea0a 100%);
+        border-left: 1px solid rgba(53, 62, 234, 0.12);
+      }
+      #s1 .dot-grid {
+        position: absolute;
+        right: 4%;
+        top: 50%;
+        transform: translateY(-50%);
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: clamp(6px, 0.8vw, 10px);
+        opacity: 0.18;
+      }
+      #s1 .dot-grid span {
+        width: clamp(3px, 0.35vw, 4px);
+        height: clamp(3px, 0.35vw, 4px);
+        border-radius: 50%;
+        background: var(--blue);
+        display: block;
+      }
+
+      /* ── SLIDE 2: GOAL ── */
+      #s2 {
+        background: var(--gray-9);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s2 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s2 h2 {
+        font-size: clamp(20px, 3.5vw, 42px);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-top: 2%;
+      }
+      #s2 h2 span {
+        color: var(--blue);
+      }
+      #s2 .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+        margin-top: 4%;
+      }
+      #s2 .card {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 5% 6%;
+      }
+      #s2 .card .num {
+        font-size: clamp(24px, 3.5vw, 42px);
+        font-weight: 900;
+        color: var(--blue);
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+      #s2 .card h4 {
+        font-size: clamp(10px, 1.1vw, 13px);
+        font-weight: 600;
+        margin-top: 3%;
+        color: var(--white);
+      }
+      #s2 .card p {
+        font-size: clamp(9px, 0.9vw, 11px);
+        color: var(--gray-4);
+        margin-top: 2%;
+        line-height: 1.5;
+      }
+      #s2 .bottom-bar {
+        margin-top: 4%;
+        padding-top: 3%;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: clamp(9px, 0.9vw, 11px);
+        color: var(--gray-4);
+        line-height: 1.6;
+      }
+
+      /* ── SLIDE 3: STACK ── */
+      #s3 {
+        background: var(--black);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s3 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s3 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s3 .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5%;
+        margin-top: 4%;
+      }
+      #s3 .tech {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 5% 5% 4%;
+        display: flex;
+        flex-direction: column;
+        gap: 8%;
+        height: 180px;
+      }
+      #s3 .tech .icon {
+        font-size: clamp(16px, 2vw, 24px);
+        width: clamp(32px, 3.5vw, 42px);
+        height: clamp(32px, 3.5vw, 42px);
+        background: var(--blue-dim);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #s3 .tech h4 {
+        font-size: clamp(10px, 1.1vw, 13px);
+        font-weight: 700;
+        color: var(--white);
+      }
+      #s3 .tech p {
+        font-size: clamp(8px, 0.9vw, 11px);
+        color: var(--gray-4);
+        line-height: 1.5;
+      }
+      #s3 .tech .tag {
+        display: inline-block;
+        background: rgba(53, 62, 234, 0.15);
+        color: var(--blue);
+        border-radius: 4px;
+        padding: 2px 7px;
+        font-size: clamp(7px, 0.75vw, 9px);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        align-self: flex-start;
+      }
+      #s3 .note {
+        margin-top: 3%;
+        padding: 2.5% 3%;
+        background: rgba(53, 62, 234, 0.07);
+        border: 1px solid rgba(53, 62, 234, 0.18);
+        border-radius: 8px;
+        font-size: clamp(9px, 0.9vw, 11px);
+        color: var(--gray-2);
+        line-height: 1.5;
+      }
+
+      /* ── SLIDE 4: ARCHITECTURE ── */
+      #s4 {
+        background: var(--gray-9);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s4 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s4 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s4 .arch {
+        display: flex;
+        align-items: stretch;
+        gap: 2%;
+        margin-top: 4%;
+        flex: 1;
+      }
+      #s4 .arch-col {
+        flex: 1;
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4% 4%;
+        display: flex;
+        flex-direction: column;
+        gap: 6%;
+      }
+      #s4 .arch-col h5 {
+        font-size: clamp(9px, 0.95vw, 11px);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blue);
+        border-bottom: 1px solid rgba(53, 62, 234, 0.2);
+        padding-bottom: 4%;
+      }
+      #s4 .arch-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8%;
+      }
+      #s4 .arch-item .dot {
+        width: clamp(6px, 0.6vw, 7px);
+        height: clamp(6px, 0.6vw, 7px);
+        background: var(--blue);
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+      #s4 .arch-item div {
+        min-width: 0;
+      }
+      #s4 .arch-item strong {
+        font-size: clamp(9px, 0.95vw, 12px);
+        font-weight: 600;
+        color: var(--white);
+        display: block;
+      }
+      #s4 .arch-item span {
+        font-size: clamp(8px, 0.8vw, 10px);
+        color: var(--gray-4);
+        line-height: 1.4;
+        display: block;
+        margin-top: 2px;
+      }
+      #s4 .arch-arrow {
+        display: flex;
+        align-items: center;
+        color: var(--gray-7);
+        font-size: clamp(16px, 2vw, 24px);
+        align-self: center;
+      }
+
+      /* ── SLIDE 5: COMPONENTS ── */
+      #s5 {
+        background: var(--black);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s5 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s5 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s5 .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+        margin-top: 4%;
+      }
+      #s5 .comp {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4% 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 4%;
+      }
+      #s5 .comp-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      #s5 .comp-header h4 {
+        font-size: clamp(10px, 1.05vw, 13px);
+        font-weight: 700;
+        color: var(--white);
+      }
+      #s5 .comp-header .badge {
+        font-size: clamp(7px, 0.7vw, 9px);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 2px 7px;
+        border-radius: 100px;
+        background: rgba(53, 62, 234, 0.15);
+        color: var(--blue);
+      }
+      #s5 .comp p {
+        font-size: clamp(8px, 0.85vw, 10px);
+        color: var(--gray-4);
+        line-height: 1.6;
+      }
+      #s5 .comp .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+        margin-top: 2%;
+      }
+      #s5 .comp .features span {
+        font-size: clamp(7px, 0.75vw, 9px);
+        color: var(--gray-2);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        padding: 2px 6px;
+      }
+
+      /* ── SLIDE 6: I18N ── */
+      #s6 {
+        background: var(--gray-9);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s6 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s6 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s6 .i18n-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3%;
+        margin-top: 4%;
+        flex: 1;
+      }
+      #s6 .locales {
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+      }
+      #s6 .locale-card {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4% 5%;
+        display: flex;
+        align-items: center;
+        gap: 5%;
+      }
+      #s6 .locale-card .flag {
+        font-size: clamp(18px, 2.2vw, 28px);
+      }
+      #s6 .locale-card div strong {
+        font-size: clamp(10px, 1.05vw, 13px);
+        font-weight: 700;
+        color: var(--white);
+        display: block;
+      }
+      #s6 .locale-card div span {
+        font-size: clamp(8px, 0.85vw, 10px);
+        color: var(--gray-4);
+      }
+      #s6 .code-block {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4% 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+      }
+      #s6 .code-block .code-label {
+        font-size: clamp(8px, 0.8vw, 10px);
+        font-weight: 600;
+        color: var(--blue);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      #s6 pre {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(7px, 0.75vw, 9px);
+        color: var(--gray-2);
+        line-height: 1.7;
+        white-space: pre-wrap;
+        overflow: hidden;
+        flex: 1;
+      }
+      #s6 pre .k {
+        color: #7b93ff;
+      }
+      #s6 pre .s {
+        color: #98d4a3;
+      }
+      #s6 pre .p {
+        color: var(--gray-4);
+      }
+      #s6 pre .t {
+        color: var(--blue);
+      }
+
+      /* ── SLIDE 7: AI WIDGET ── */
+      #s7 {
+        background: var(--black);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s7 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s7 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s7 .ai-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 3%;
+        margin-top: 4%;
+      }
+      #s7 .ai-features {
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+      }
+      #s7 .ai-feat {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4% 5%;
+        display: flex;
+        align-items: flex-start;
+        gap: 5%;
+      }
+      #s7 .ai-feat .icon-wrap {
+        width: clamp(26px, 2.8vw, 34px);
+        height: clamp(26px, 2.8vw, 34px);
+        background: var(--blue-dim);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: clamp(12px, 1.5vw, 18px);
+      }
+      #s7 .ai-feat strong {
+        font-size: clamp(10px, 1.05vw, 13px);
+        font-weight: 700;
+        color: var(--white);
+        display: block;
+      }
+      #s7 .ai-feat p {
+        font-size: clamp(8px, 0.8vw, 10px);
+        color: var(--gray-4);
+        line-height: 1.5;
+        margin-top: 2px;
+      }
+      #s7 .chat-mock {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 4%;
+        display: flex;
+        flex-direction: column;
+        gap: 4%;
+      }
+      #s7 .chat-mock .chat-head {
+        display: flex;
+        align-items: center;
+        gap: 4%;
+        padding-bottom: 3%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      #s7 .chat-mock .chat-head .avatar {
+        width: clamp(20px, 2.2vw, 28px);
+        height: clamp(20px, 2.2vw, 28px);
+        background: var(--blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(8px, 0.9vw, 11px);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      #s7 .chat-mock .chat-head strong {
+        font-size: clamp(9px, 0.95vw, 12px);
+        font-weight: 700;
+      }
+      #s7 .chat-mock .chat-head span {
+        font-size: clamp(7px, 0.75vw, 9px);
+        color: #5bf093;
+        display: block;
+        margin-top: 1px;
+      }
+      #s7 .msg {
+        font-size: clamp(7px, 0.8vw, 10px);
+        line-height: 1.6;
+        border-radius: 8px;
+        padding: 3% 4%;
+        max-width: 90%;
+      }
+      #s7 .msg.bot {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--gray-1);
+        align-self: flex-start;
+      }
+      #s7 .msg.user {
+        background: rgba(53, 62, 234, 0.2);
+        color: var(--white);
+        align-self: flex-end;
+        margin-left: auto;
+      }
+      #s7 .chat-msgs {
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+        flex: 1;
+      }
+
+      /* ── SLIDE 8: RESULTS ── */
+      #s8 {
+        background: var(--gray-9);
+        padding: 6% 8%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #s8 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      #s8 h2 {
+        font-size: clamp(20px, 3.2vw, 38px);
+        font-weight: 800;
+        margin-top: 1.5%;
+      }
+      #s8 .results-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2%;
+        margin-top: 4%;
+      }
+      #s8 .result-card {
+        background: var(--gray-8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        padding: 5% 5% 4%;
+        display: flex;
+        flex-direction: column;
+        gap: 4%;
+      }
+      #s8 .result-card .metric {
+        font-size: clamp(24px, 3.2vw, 38px);
+        font-weight: 900;
+        color: var(--blue);
+        line-height: 1;
+      }
+      #s8 .result-card h4 {
+        font-size: clamp(10px, 1.05vw, 13px);
+        font-weight: 600;
+        color: var(--white);
+      }
+      #s8 .result-card p {
+        font-size: clamp(8px, 0.85vw, 10px);
+        color: var(--gray-4);
+        line-height: 1.5;
+      }
+      #s8 .takeaways {
+        margin-top: 3%;
+        padding: 3% 4%;
+        background: rgba(53, 62, 234, 0.07);
+        border: 1px solid rgba(53, 62, 234, 0.18);
+        border-radius: 8px;
+        display: flex;
+        gap: 6%;
+      }
+      #s8 .takeaways .ta {
+        flex: 1;
+        font-size: clamp(8px, 0.85vw, 10px);
+        color: var(--gray-2);
+        line-height: 1.6;
+      }
+      #s8 .takeaways .ta strong {
+        display: block;
+        color: var(--white);
+        font-size: clamp(9px, 0.95vw, 12px);
+        margin-bottom: 2%;
+      }
+
+      /* ── SLIDE 9: FINAL ── */
+      #s9 {
+        background: var(--black);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 7% 8%;
+        text-align: center;
+        position: relative;
+      }
+      #s9 .bg-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid rgba(53, 62, 234, 0.12);
+        pointer-events: none;
+      }
+      #s9 .bg-ring::before {
+        content: '';
+        position: absolute;
+        inset: 12%;
+        border-radius: 50%;
+        border: 1px solid rgba(53, 62, 234, 0.08);
+      }
+      #s9 .slide-label {
+        font-size: clamp(9px, 0.9vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 3%;
+      }
+      #s9 h2 {
+        font-size: clamp(26px, 4.5vw, 54px);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+      #s9 h2 span {
+        color: var(--blue);
+      }
+      #s9 .sub {
+        font-size: clamp(10px, 1.2vw, 14px);
+        color: var(--gray-2);
+        max-width: 65%;
+        margin: 3% auto 0;
+        line-height: 1.7;
+      }
+      #s9 .links {
+        display: flex;
+        gap: 3%;
+        margin-top: 5%;
+        align-items: center;
+        justify-content: center;
+      }
+      #s9 .links a {
+        font-size: clamp(9px, 0.95vw, 12px);
+        color: var(--blue);
+        text-decoration: none;
+        padding: clamp(6px, 0.7vw, 8px) clamp(14px, 1.8vw, 22px);
+        border: 1px solid rgba(53, 62, 234, 0.4);
+        border-radius: 100px;
+        transition: all 0.2s;
+      }
+      #s9 .links a:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+      #s9 .slide-num {
+        position: absolute;
+        bottom: 4%;
+        right: 5%;
+        font-size: clamp(8px, 0.8vw, 10px);
+        color: var(--gray-7);
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.1em;
+      }
+
+      /* ── SHARED SLIDE NUMBER ── */
+      .slide-num {
+        position: absolute;
+        bottom: 4%;
+        right: 5%;
+        font-size: clamp(8px, 0.8vw, 10px);
+        color: var(--gray-7);
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.1em;
+      }
+
+      /* ── PRINT / PDF ── */
+      @media print {
+        #controls,
+        #thumbs {
+          display: none !important;
+        }
+        #viewport {
+          margin-top: 0;
+          padding: 0;
+          min-height: auto;
+          background: #ffffff;
+        }
+        .slides {
+          max-width: 100%;
+        }
+        .slide {
+          display: flex !important;
+          break-after: page;
+          box-shadow: none;
+          aspect-ratio: 16/9;
+        }
+      }
+
+      @media (max-width: 700px) {
+        #s2 .cards,
+        #s3 .stack-grid,
+        #s5 .comp-grid,
+        #s8 .results-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        #s4 .arch,
+        #s6 .i18n-layout,
+        #s7 .ai-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CONTROLS -->
+    <div id="controls">
+      <span class="brand">EltexAlatau — Портфолио</span>
+      <div class="nav">
+        <button id="prev-btn" disabled>← Назад</button>
+        <span id="slide-counter">1 / 9</span>
+        <button id="next-btn">Вперёд →</button>
+        <button id="print-btn" onclick="window.print()">⬇ PDF</button>
+      </div>
+    </div>
+
+    <!-- VIEWPORT -->
+    <div id="viewport">
+      <div class="slides">
+        <!-- ══ SLIDE 1 ══ -->
+        <div class="slide active" id="s1">
+          <div class="dot-grid" id="dg1"></div>
+
+          <div class="eyebrow">Практическая работа</div>
+          <h1>Разработка<br />корпоративного<br />сайта <span>EltexAlatau</span></h1>
+          <p class="sub">
+            Создание полноценного современного веб-сайта для казахстанского производителя
+            телекоммуникационного оборудования с мультиязычностью и AI-консультантом.
+          </p>
+          <div class="meta">
+            <div>Тип работы <strong>Веб-разработка</strong></div>
+            <div>Стек <strong>Next.js · TypeScript · Tailwind</strong></div>
+            <div>Статус <strong>Готов к продакшену</strong></div>
+          </div>
+
+          <div class="progress-line" style="width: 11%"></div>
+          <span class="slide-num">01 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 2 ══ -->
+        <div class="slide" id="s2">
+          <span class="slide-label">Задача проекта</span>
+          <div>
+            <h2>Что нужно было<br /><span>создать?</span></h2>
+            <div class="cards">
+              <div class="card">
+                <div class="num">01</div>
+                <h4>Корпоративный сайт</h4>
+                <p>
+                  Современный сайт-визитка для презентации компании, продуктов и услуг клиентам и
+                  партнёрам
+                </p>
+              </div>
+              <div class="card">
+                <div class="num">02</div>
+                <h4>Мультиязычность</h4>
+                <p>
+                  Поддержка трёх языков: казахского, русского и английского с переключением без
+                  перезагрузки страницы
+                </p>
+              </div>
+              <div class="card">
+                <div class="num">03</div>
+                <h4>AI-консультант</h4>
+                <p>
+                  Встроенный чат-виджет на базе Anthropic Claude для ответов на вопросы посетителей
+                  о компании
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-bar">
+            EltexAlatau — единственный официальный представитель завода Eltex в Казахстане. Компания
+            работает с 2012 года и обслуживает 20+ провайдеров в Казахстане, Узбекистане и
+            Кыргызстане.
+          </div>
+          <div class="progress-line" style="width: 22%"></div>
+          <span class="slide-num">02 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 3 ══ -->
+        <div class="slide" id="s3">
+          <span class="slide-label">Технологии</span>
+          <h2>Используемый стек</h2>
+          <div class="stack-grid">
+            <div class="tech">
+              <div class="icon">⚛️</div>
+              <h4>Next.js 15</h4>
+              <p>App Router, SSR, оптимизация изображений</p>
+              <span class="tag">Frontend</span>
+            </div>
+            <div class="tech">
+              <div class="icon">🔷</div>
+              <h4>TypeScript</h4>
+              <p>Строгая типизация, автодополнение, безопасный рефакторинг</p>
+              <span class="tag">Типизация</span>
+            </div>
+            <div class="tech">
+              <div class="icon">💨</div>
+              <h4>Tailwind CSS</h4>
+              <p>Utility-first стилизация, адаптивная верстка, кастомные токены</p>
+              <span class="tag">Стили</span>
+            </div>
+            <div class="tech">
+              <div class="icon">🤖</div>
+              <h4>Anthropic Claude</h4>
+              <p>AI API для чат-виджета, потоковая передача ответов в реальном времени</p>
+              <span class="tag">AI</span>
+            </div>
+          </div>
+          <div class="note">
+            💡 &nbsp;Все компоненты написаны на TypeScript с полной типизацией. Проект ориентирован
+            на производительность: оценка Google PageSpeed 90+ на мобильных устройствах.
+          </div>
+          <div class="progress-line" style="width: 33%"></div>
+          <span class="slide-num">03 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 4 ══ -->
+        <div class="slide" id="s4">
+          <span class="slide-label">Архитектура</span>
+          <h2>Структура проекта</h2>
+          <div class="arch">
+            <div class="arch-col">
+              <h5>Страницы и роутинг</h5>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>HomePage.tsx</strong><span>Корневой контейнер с управлением локалью</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Header.tsx</strong
+                  ><span>Фиксированная навигация, мобильное меню, скролл-эффект</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Hero.tsx</strong><span>Главный экран с full-screen изображением</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div><strong>Footer.tsx</strong><span>Подвал с навигацией и контактами</span></div>
+              </div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-col">
+              <h5>Секции сайта</h5>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div><strong>About.tsx</strong><span>О компании — карточки с иконками</span></div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Services.tsx</strong
+                  ><span>Услуги — список и визуальные лейблы на фото</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Advantages.tsx</strong><span>Преимущества — тёмный блок с метриками</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Achievements.tsx</strong><span>Достижения — статистика компании</span>
+                </div>
+              </div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-col">
+              <h5>Инфраструктура</h5>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>lib/i18n.ts</strong><span>Система локализации, типы для всех языков</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>ChatWidget.tsx</strong><span>AI-виджет с Anthropic Claude API</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Switcher.tsx</strong><span>Переключатель языков с анимацией</span>
+                </div>
+              </div>
+              <div class="arch-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Infrastructure.tsx</strong
+                  ><span>Фотосетка производственных мощностей</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="progress-line" style="width: 44%"></div>
+          <span class="slide-num">04 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 5 ══ -->
+        <div class="slide" id="s5">
+          <span class="slide-label">Компоненты</span>
+          <h2>Ключевые UI-компоненты</h2>
+          <div class="comp-grid">
+            <div class="comp">
+              <div class="comp-header">
+                <h4>Header</h4>
+                <span class="badge">Client</span>
+              </div>
+              <p>
+                Фиксированная шапка с glassmorphism-эффектом при скролле, плавная прокрутка к якорям
+                с offset, мобильное меню-панель
+              </p>
+              <div class="features">
+                <span>sticky</span><span>blur backdrop</span><span>mobile menu</span
+                ><span>smooth scroll</span>
+              </div>
+            </div>
+            <div class="comp">
+              <div class="comp-header">
+                <h4>Hero</h4>
+                <span class="badge">Server</span>
+              </div>
+              <p>
+                Полноэкранная секция с background-изображением, градиентным оверлеем и тремя
+                иконками-преимуществами
+              </p>
+              <div class="features">
+                <span>full-screen</span><span>priority load</span><span>gradient overlay</span>
+              </div>
+            </div>
+            <div class="comp">
+              <div class="comp-header">
+                <h4>Services</h4>
+                <span class="badge">Server</span>
+              </div>
+              <p>
+                Двухколоночный макет: нумерованный список услуг слева + интерактивные floating-метки
+                на фото справа
+              </p>
+              <div class="features">
+                <span>image labels</span><span>hover effects</span><span>icons</span>
+              </div>
+            </div>
+            <div class="comp">
+              <div class="comp-header">
+                <h4>Advantages</h4>
+                <span class="badge">Server</span>
+              </div>
+              <p>
+                Тёмный блок с фоновым изображением, адаптивным градиентом и статистическими
+                метриками
+              </p>
+              <div class="features">
+                <span>bg image</span><span>adaptive gradient</span><span>stats</span>
+              </div>
+            </div>
+            <div class="comp">
+              <div class="comp-header">
+                <h4>Infrastructure</h4>
+                <span class="badge">Server</span>
+              </div>
+              <p>
+                CSS Grid фотоколлаж с hover-зумом, наложением текста и адаптивными span-значениями
+                для разных breakpoints
+              </p>
+              <div class="features">
+                <span>css grid</span><span>hover zoom</span><span>overlay text</span>
+              </div>
+            </div>
+            <div class="comp">
+              <div class="comp-header">
+                <h4>LocaleSwitcher</h4>
+                <span class="badge">Client</span>
+              </div>
+              <p>
+                Выпадающий выбор языка с анимацией, закрытием по клику вне компонента и клавишей
+                Escape
+              </p>
+              <div class="features">
+                <span>dropdown</span><span>outside click</span><span>keyboard nav</span>
+              </div>
+            </div>
+          </div>
+          <div class="progress-line" style="width: 55%"></div>
+          <span class="slide-num">05 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 6 ══ -->
+        <div class="slide" id="s6">
+          <span class="slide-label">Интернационализация</span>
+          <h2>Система мультиязычности</h2>
+          <div class="i18n-layout">
+            <div class="locales">
+              <div class="locale-card">
+                <div class="flag">🇰🇿</div>
+                <div>
+                  <strong>Казахский (kk)</strong>
+                  <span>Основной язык · полный перевод всех секций</span>
+                </div>
+              </div>
+              <div class="locale-card">
+                <div class="flag">🇷🇺</div>
+                <div>
+                  <strong>Русский (ru)</strong>
+                  <span>По умолчанию · DEFAULT_LOCALE</span>
+                </div>
+              </div>
+              <div class="locale-card">
+                <div class="flag">🇬🇧</div>
+                <div>
+                  <strong>Английский (en)</strong>
+                  <span>Для международных партнёров</span>
+                </div>
+              </div>
+              <div
+                style="
+                  background: rgba(53, 62, 234, 0.07);
+                  border: 1px solid rgba(53, 62, 234, 0.18);
+                  border-radius: 12px;
+                  padding: 4% 5%;
+                ">
+                <p
+                  style="
+                    font-size: clamp(8px, 0.9vw, 11px);
+                    color: var(--gray-2);
+                    line-height: 1.6;
+                  ">
+                  Переключение языка происходит
+                  <strong style="color: var(--white)">без перезагрузки страницы</strong> — состояние
+                  хранится в React useState в HomePage, передаётся во все дочерние компоненты через
+                  props.
+                </p>
+              </div>
+            </div>
+            <div class="code-block">
+              <span class="code-label">lib/i18n.ts — createTranslator</span>
+              <pre><span class="k">export const</span> LOCALES = [<span class="s">'kk'</span>, <span class="s">'ru'</span>, <span class="s">'en'</span>] <span class="k">as const</span>;
+<span class="k">export type</span> <span class="t">Locale</span> = <span class="k">typeof</span> LOCALES[<span class="k">number</span>];
+
+<span class="k">export function</span> <span class="t">createTranslator</span>(locale: <span class="t">Locale</span>) {
+  <span class="k">return function</span> t(key: <span class="k">string</span>) {
+    <span class="k">return</span> translations[locale][key];
+  };
+}
+
+<span class="p">// Типизированные данные для каждого компонента</span>
+<span class="k">export type</span> <span class="t">AboutItem</span> = {
+  icon: <span class="k">string</span>;
+  title: <span class="k">string</span>;
+  text: <span class="k">string</span>;
+};
+
+<span class="k">export type</span> <span class="t">HeroItem</span> = {
+  img: <span class="k">string</span>;
+  title: <span class="k">string</span>;
+  text: <span class="k">string</span>;
+};
+
+<span class="p">// Использование в компоненте:</span>
+<span class="k">const</span> t = <span class="t">createTranslator</span>(locale);
+<span class="k">const</span> items = t(<span class="s">'about.items'</span>) <span class="k">as</span> <span class="t">AboutItem</span>[];</pre>
+            </div>
+          </div>
+          <div class="progress-line" style="width: 66%"></div>
+          <span class="slide-num">06 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 7 ══ -->
+        <div class="slide" id="s7">
+          <span class="slide-label">AI-интеграция</span>
+          <h2>Чат-виджет на базе Claude</h2>
+          <div class="ai-layout">
+            <div class="ai-features">
+              <div class="ai-feat">
+                <div class="icon-wrap">🤖</div>
+                <div>
+                  <strong>Anthropic Claude API</strong>
+                  <p>
+                    Интеграция через официальный REST API — streaming-ответы в режиме реального
+                    времени
+                  </p>
+                </div>
+              </div>
+              <div class="ai-feat">
+                <div class="icon-wrap">📌</div>
+                <div>
+                  <strong>Фиксированный виджет</strong>
+                  <p>
+                    ChatWidget крепится к странице как fixed-элемент поверх всего контента, доступен
+                    на всех секциях
+                  </p>
+                </div>
+              </div>
+              <div class="ai-feat">
+                <div class="icon-wrap">🌐</div>
+                <div>
+                  <strong>Контекст компании</strong>
+                  <p>
+                    System prompt передаёт AI все знания о компании: продукты, контакты, история,
+                    партнёры
+                  </p>
+                </div>
+              </div>
+              <div class="ai-feat">
+                <div class="icon-wrap">💬</div>
+                <div>
+                  <strong>История диалога</strong>
+                  <p>
+                    Поддержание контекста в рамках сессии — многошаговые разговоры с сохранением
+                    истории
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chat-mock">
+              <div class="chat-head">
+                <div class="avatar">AI</div>
+                <div>
+                  <strong>EltexAlatau Консультант</strong>
+                  <span>● онлайн</span>
+                </div>
+              </div>
+              <div class="chat-msgs">
+                <div class="msg bot">
+                  Здравствуйте! Я AI-консультант EltexAlatau. Могу помочь с информацией об
+                  оборудовании, услугах или контактах.
+                </div>
+                <div class="msg user">Какое оборудование вы производите?</div>
+                <div class="msg bot">
+                  Мы производим телекоммуникационное оборудование: коммутаторы, маршрутизаторы,
+                  оптические трансиверы. Являемся единственным официальным представителем завода
+                  Eltex в Казахстане. На нашем оборудовании работают 20+ интернет-провайдеров.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="progress-line" style="width: 77%"></div>
+          <span class="slide-num">07 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 8 ══ -->
+        <div class="slide" id="s8">
+          <span class="slide-label">Итоги</span>
+          <h2>Результаты разработки</h2>
+          <div class="results-grid">
+            <div class="result-card">
+              <div class="metric">12+</div>
+              <h4>Компонентов</h4>
+              <p>Независимые React-компоненты с полной типизацией TypeScript</p>
+            </div>
+            <div class="result-card">
+              <div class="metric">3</div>
+              <h4>Языка</h4>
+              <p>Полная локализация на KK · RU · EN без перезагрузки</p>
+            </div>
+            <div class="result-card">
+              <div class="metric">100%</div>
+              <h4>Адаптивность</h4>
+              <p>Корректное отображение на мобильных, планшетах и десктопах</p>
+            </div>
+            <div class="result-card">
+              <div class="metric">AI</div>
+              <h4>Консультант</h4>
+              <p>Интегрированный чат-бот с реальным стриминг-ответом от Claude</p>
+            </div>
+          </div>
+          <div class="takeaways">
+            <div class="ta">
+              <strong>🛠 Технические навыки</strong>
+              Получен практический опыт работы с Next.js App Router, TypeScript generics, Tailwind
+              CSS responsive design, а также REST API интеграцией с внешними сервисами.
+            </div>
+            <div class="ta">
+              <strong>🎯 Продуктовый подход</strong>
+              Реальный проект для действующей компании — работа с брифом, дизайн-системой,
+              требованиями к SEO и производительности, мультиязычным контентом.
+            </div>
+            <div class="ta">
+              <strong>🚀 Дальнейшее развитие</strong>
+              Планируется добавление страницы продуктов, контактной формы с отправкой на email, а
+              также SEO-оптимизация с metadata API Next.js.
+            </div>
+          </div>
+          <div class="progress-line" style="width: 88%"></div>
+          <span class="slide-num">08 / 09</span>
+        </div>
+
+        <!-- ══ SLIDE 9 ══ -->
+        <div class="slide" id="s9">
+          <div class="bg-ring"></div>
+          <div class="slide-label">Спасибо за внимание</div>
+          <h2>Сайт <span>EltexAlatau</span><br />готов к работе</h2>
+          <p class="sub">
+            Проект реализован с использованием современного стека веб-технологий и представляет
+            полноценное production-ready решение для казахстанской телекоммуникационной компании.
+          </p>
+          <div class="links">
+            <a href="#">Next.js · TypeScript · Tailwind</a>
+            <a href="#">Anthropic Claude API</a>
+            <a href="#">i18n · KK · RU · EN</a>
+          </div>
+          <div class="progress-line" style="width: 100%"></div>
+          <span class="slide-num">09 / 09</span>
+        </div>
+      </div>
+      <!-- /.slides -->
+    </div>
+    <!-- /#viewport -->
+
+    <!-- THUMBNAILS -->
+    <div id="thumbs">
+      <div class="thumb active" data-idx="0">01</div>
+      <div class="thumb" data-idx="1">02</div>
+      <div class="thumb" data-idx="2">03</div>
+      <div class="thumb" data-idx="3">04</div>
+      <div class="thumb" data-idx="4">05</div>
+      <div class="thumb" data-idx="5">06</div>
+      <div class="thumb" data-idx="6">07</div>
+      <div class="thumb" data-idx="7">08</div>
+      <div class="thumb" data-idx="8">09</div>
+    </div>
+
+    <script>
+      // Dot grid for cover
+      const dg = document.getElementById('dg1');
+      for (let i = 0; i < 48; i++) {
+        const s = document.createElement('span');
+        dg.appendChild(s);
+      }
+
+      const slides = document.querySelectorAll('.slide');
+      const thumbs = document.querySelectorAll('.thumb');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const counter = document.getElementById('slide-counter');
+      let current = 0;
+
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        thumbs[current].classList.remove('active');
+        current = Math.max(0, Math.min(idx, slides.length - 1));
+        slides[current].classList.add('active');
+        thumbs[current].classList.add('active');
+        counter.textContent = `${current + 1} / ${slides.length}`;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === slides.length - 1;
+        thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+      thumbs.forEach((t) => t.addEventListener('click', () => goTo(+t.dataset.idx)));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1);
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goTo(current - 1);
+      });
+
+      goTo(0);
+    </script>
+  </body>
+</html>
