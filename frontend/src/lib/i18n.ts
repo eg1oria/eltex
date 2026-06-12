@@ -47,6 +47,7 @@ type Dictionary = {
     description: string;
     cta: string;
     items: AboutItem[];
+    btn: string;
   };
   advantages: {
     badge: string;
@@ -67,6 +68,7 @@ type TranslationMap = {
   'header.closeLabel': string;
   'header.switchLocaleLabel': string;
   'hero.description': string;
+  'about.btn': string;
   'hero.cta': string;
   'hero.items': HeroItem[];
   'about.badge': string;
@@ -105,7 +107,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     hero: {
       description:
         'ЭлтексАлатау — электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Новосибирск Элтекс зауытының жалғыз ресми өкілі. Компания 2012 жылы құрылған.',
-      cta: 'Маманмен байланысу',
+      cta: 'Монтаж құнын бағалау',
       items: [
         {
           title: 'Алматыдағы өндіріс',
@@ -131,6 +133,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'ЭлтексАлатау — операторлық деңгейдегі электроника және телекоммуникациялық жабдық өндірушісі. 12 жыл жұмыс барысында біздің жабдықтар Қазақстан, Өзбекстан және Қырғызстанның ірі операторлары желілерінде орнатылды.',
       cta: 'Компания туралы толығырақ',
+      btn: 'Презентация',
       items: [
         {
           title: 'Сапаны бақылау',
@@ -156,8 +159,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     advantages: {
       badge: 'АРТЫҚШЫЛЫҚТАРЫ',
-      title: 'ТЕХНОЛОГИЯ. СЕНІМДІЛІК.',
-      accentTitle: 'САПА.',
+      title: 'СТАРТАПТАРҒА. ӨНДІРУШІЛЕРГЕ.',
+      accentTitle: 'ӘЗІРЛЕУШІЛЕРГЕ.',
       description:
         'Біз операторлық деңгейдегі телекоммуникациялық жабдықтарды әзірлеп, өндіреміз және тапсырыс берушінің инфрақұрылымына үздіксіз интеграцияны қамтамасыз етеміз.',
       items: [
@@ -175,14 +178,13 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           title: [
-            { text: 'Кең ', accent: false },
-            { text: 'өнім желісі', accent: false },
+            { text: 'Шығарылатын', accent: false },
+            { text: 'өнімдер', accent: false },
           ],
           text: [
-            { text: 'Коммутаторлар, маршрутизаторлар, ', accent: false },
-            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
-            { text: 'және басқалары', accent: false },
-            { text: ' бір каталогта.', accent: false },
+            { text: 'Eltex операторлық сыныптағы жабдық ', accent: false },
+            { text: 'Өнеркәсіптік және ауылшаруашылық электроника ', accent: true },
+            { text: 'Премиум сегменттегі киілетін электроника', accent: false },
           ],
         },
         {
@@ -220,7 +222,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     metadata: {
       title: 'ЭлтексАлатау',
       description:
-        'Казахстанский производитель электроники и современного телекоммуникационного оборудования. Единственный официальный представитель завода Eltex в Казахстане.',
+        'Казахстанский производитель телекоммуникационного оборудования в Алматы. Контрактное производство (локализация) и услуги SMD-монтажа плат. Компания основана в 2012 году.',
     },
     header: {
       navLinks: [
@@ -236,8 +238,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       description:
-        'ЭлтексАлатау — производитель электроники и современного телекоммуникационного оборудования. Единственный официальный представитель Новосибирского завода Элтекс в Казахстане. Компания основана в 2012 году.',
-      cta: 'Связаться со специалистом',
+        'ЭлтексАлатау — производитель телекоммуникационного оборудования в Алматы. Контрактное производство (локализация) и услуги SMD-монтажа плат. Компания основана в 2012 году.',
+      cta: 'Оценить стоимость монтажа',
       items: [
         {
           title: 'Производство в Алматы',
@@ -245,14 +247,9 @@ const dictionaries: Record<Locale, Dictionary> = {
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: 'Премия «Алтын Сапа»',
-          text: 'Лауреат премии Президента РК в номинации «Лучший инновационный проект» 2015 года',
+          title: 'Ресурсы и возможности компании:',
+          text: 'SMD и ТНТ - монтаж плат; Тестирование; Финальная сборка',
           img: '/hero/hero-icon2.webp',
-        },
-        {
-          title: '3 страны присутствия',
-          text: 'Оборудование работает у операторов Казахстана, Узбекистана и Кыргызстана',
-          img: '/hero/hero-icon3.webp',
         },
       ],
     },
@@ -263,6 +260,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'ЭлтексАлатау — казахстанский производитель электроники и телекоммуникационного оборудования операторского уровня. За 12 лет работы наше оборудование установлено на сетях крупнейших операторов Казахстана, Узбекистана и Кыргызстана.',
       cta: 'Подробнее о компании',
+      btn: 'Презентация',
       items: [
         {
           title: 'Контроль качества',
@@ -288,8 +286,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     advantages: {
       badge: 'ПРЕИМУЩЕСТВА',
-      title: 'ТЕХНОЛОГИИ. НАДЕЖНОСТЬ.',
-      accentTitle: 'КАЧЕСТВО.',
+      title: 'СТАРТАПАМ. ПРОИЗВОДИТЕЛЯМ.',
+      accentTitle: 'РАЗРАБОТЧИКАМ.',
       description:
         'Мы разрабатываем и производим телекоммуникационное оборудование операторского уровня, обеспечивая бесшовную интеграцию в инфраструктуру заказчика.',
       items: [
@@ -307,14 +305,13 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           title: [
-            { text: 'Широкая ', accent: false },
-            { text: 'продуктовая линейка', accent: false },
+            { text: 'Выпускаемая', accent: false },
+            { text: 'продукция', accent: false },
           ],
           text: [
-            { text: 'Коммутаторы, маршрутизаторы, ', accent: false },
-            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
-            { text: 'и многое другое', accent: false },
-            { text: ' в одном каталоге.', accent: false },
+            { text: 'Оборудование операторского класса Eltex ', accent: false },
+            { text: 'Промышленная и сельскохозяйственная электроника ', accent: true },
+            { text: 'Носимая электроника премиум-сегмента', accent: false },
           ],
         },
         {
@@ -369,7 +366,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     hero: {
       description:
         'EltexAlatau is a manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Novosibirsk Eltex factory in Kazakhstan. Founded in 2012.',
-      cta: 'Contact a specialist',
+      cta: 'Get installation quote',
       items: [
         {
           title: 'Production in Almaty',
@@ -395,6 +392,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'EltexAlatau is a Kazakhstani manufacturer of electronics and carrier-grade telecommunications equipment. Over 12 years, our equipment has been deployed across the networks of major operators in Kazakhstan, Uzbekistan and Kyrgyzstan.',
       cta: 'Learn more about the company',
+      btn: 'Presentation',
       items: [
         {
           title: 'Quality Control',
@@ -420,8 +418,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     advantages: {
       badge: 'ADVANTAGES',
-      title: 'TECHNOLOGY. RELIABILITY.',
-      accentTitle: 'QUALITY.',
+      title: 'FOR STARTUPS. FOR MANUFACTURERS.',
+      accentTitle: 'FOR DEVELOPERS.',
       description:
         "We develop and manufacture carrier-grade telecommunications equipment, ensuring seamless integration into the customer's infrastructure.",
       items: [
@@ -439,14 +437,13 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           title: [
-            { text: 'Broad ', accent: false },
-            { text: 'product lineup', accent: false },
+            { text: 'Products', accent: false },
+            { text: 'manufactured', accent: false },
           ],
           text: [
-            { text: 'Switches, routers, ', accent: false },
-            { text: 'Wi-Fi, VoIP, GPON, IoT ', accent: true },
-            { text: 'and more', accent: false },
-            { text: ' in one catalog.', accent: false },
+            { text: 'Eltex operator-class equipment ', accent: false },
+            { text: 'Industrial and agricultural electronics ', accent: true },
+            { text: 'Premium-segment wearable electronics', accent: false },
           ],
         },
         {

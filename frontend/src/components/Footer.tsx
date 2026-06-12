@@ -20,32 +20,29 @@ const footerLinkHrefs = ['#about', '#services', '#companies', '#contacts'];
 
 const contentByLocale: Record<Locale, FooterContent> = {
   kk: {
-    description:
-      'Қазақстандық электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Eltex зауытының жалғыз ресми өкілі.',
-    navigationTitle: 'Бөлімдер',
+    description: 'Сіздің АТ-инфрақұрылымыңыз біздің бақылауымызда',
+    navigationTitle: 'Навигация',
     contactsTitle: 'Байланыс',
-    address: 'Алматы қ., Гумилев көш. 1, ЕЭА АИП «Алатау»',
-    copyright: '© 2012 ЭлтексАлатау. Барлық құқықтар қорғалған.',
+    address: 'Алматы қ., Алатау ш/а, Гумилев көш., 16',
+    copyright: '© 2026 ЖШС "ЭлтексАлатау". Барлық құқықтар қорғалған.',
     privacyPolicy: 'Құпиялылық саясаты',
     userAgreement: 'Пайдаланушы келісімі',
   },
   ru: {
-    description:
-      'Казахстанский производитель электроники и современного телекоммуникационного оборудования. Единственный официальный представитель завода Eltex в Казахстане.',
+    description: 'Ваша ИТ-инфраструктура под нашим контролем',
     navigationTitle: 'Навигация',
     contactsTitle: 'Контакты',
-    address: 'г. Алматы, ул. Гумилев 1, СЭЗ ПИТ «Алатау»',
-    copyright: '© 2012 ЭлтексАлатау. Все права защищены.',
+    address: 'г.Алматы, мкр. Алатау, ул. Гумилёва, 16',
+    copyright: '© 2026 ТОО "ЭлтексАлатау". Все права защищены.',
     privacyPolicy: 'Политика конфиденциальности',
     userAgreement: 'Пользовательское соглашение',
   },
   en: {
-    description:
-      'A Kazakhstani manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Eltex factory in Kazakhstan.',
+    description: 'Your IT infrastructure under our control',
     navigationTitle: 'Navigation',
     contactsTitle: 'Contacts',
-    address: '1 Gumilev St., Almaty, SEZ PIT «Alatau»',
-    copyright: '© 2012 EltexAlatau. All rights reserved.',
+    address: 'Almaty, Alatau district, 16 Gumilev St.',
+    copyright: '© 2026 EltexAlatau LLP. All rights reserved.',
     privacyPolicy: 'Privacy policy',
     userAgreement: 'User agreement',
   },
@@ -133,15 +130,6 @@ export default function Footer({ locale }: FooterProps) {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-2 text-[11px] leading-none text-white/45">
             <p>{content.copyright}</p>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <a href="#" className="transition-colors hover:text-white/80">
-                {content.privacyPolicy}
-              </a>
-              <span className="h-3 w-px bg-white/20" />
-              <a href="#" className="transition-colors hover:text-white/80">
-                {content.userAgreement}
-              </a>
-            </div>
           </div>
         </div>
       </div>

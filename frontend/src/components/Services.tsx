@@ -84,15 +84,21 @@ const contentByLocale: Record<Locale, ServicesContent> = {
     titleAccent: 'ЦИКЛДІ',
     titleEnd: 'ШЕШІМДЕР',
     description:
-      'Телекоммуникациялық кешенді шешімдерді ұсынамыз: жабдықты жеткізу мен өндіруден бастап жөндеу, оқыту және техникалық қолдауға дейін.',
+      'Жабдықты өндіру мен жеткізуден бастап оқыту, техникалық, кепілдіктік және кепілдіктен кейінгі қолдауға дейінгі кешенді телекоммуникациялық шешімдер ұсынамыз.',
     imageAlt: 'Қызметтер',
     items: [
-      { number: '01', title: 'Телекоммуникациялық жабдықты өндіру және жеткізу' },
-      { number: '02', title: 'Келісімшарттық өндіріс' },
-      { number: '03', title: 'Жабдықты жөндеу және сервистік қызмет көрсету' },
-      { number: '04', title: 'Тестілеуге жабдық беру' },
-      { number: '05', title: 'Мамандарды оқыту және сертификаттау бағдарламалары' },
-      { number: '06', title: 'Техникалық мамандықтар студенттеріне тәжірибе' },
+      {
+        number: '01',
+        title: 'Келісімшарттық өндіріс және SMD және THT тақталарын монтаждау қызметтері',
+      },
+      { number: '02', title: 'Eltex жабдығын сынақтан өткізу үшін жабдық беру' },
+      { number: '03', title: 'Eltex жабдығын жөндеу және сервистік қызмет көрсету' },
+      {
+        number: '04',
+        title: '"Eltex Академиясында" инженерлерді оқыту бағдарламалары және сертификаттау',
+      },
+      { number: '05', title: 'Техникалық мамандықтардағы студенттерге арналған тәжірибе' },
+      { number: '06', title: 'Орыс және қазақ тілдерінде техникалық қолдау' },
       { number: '07', title: 'Жабдық кепілдігін тексеру' },
     ],
     imageLabels: [
@@ -110,15 +116,15 @@ const contentByLocale: Record<Locale, ServicesContent> = {
     titleAccent: 'ПОЛНОГО',
     titleEnd: 'ЦИКЛА',
     description:
-      'Предоставляем комплексные телекоммуникационные решения — от поставки и производства оборудования до ремонта, обучения и технической поддержки.',
+      'Предоставляем комплексные телекоммуникационные решения — от производства и поставки оборудования до обучения, технической,  гарантийной и постгарантийной поддержки.',
     imageAlt: 'Услуги',
     items: [
-      { number: '01', title: 'Производство и поставка телекоммуникационного оборудования' },
-      { number: '02', title: 'Контрактное производство' },
-      { number: '03', title: 'Ремонт и сервисное обслуживание оборудования' },
-      { number: '04', title: 'Предоставление оборудования на тестирование' },
-      { number: '05', title: 'Программы обучения и сертификации специалистов' },
-      { number: '06', title: 'Практика для студентов технических специальностей' },
+      { number: '01', title: 'Контрактное производство и услуги по SMD и ТНТ монтажу плат' },
+      { number: '02', title: 'Предоставление оборудования на тестирование оборудования Eltex' },
+      { number: '03', title: 'Ремонт и сервисное обслуживание оборудования Eltex' },
+      { number: '04', title: 'Программы обучения и сертификация инженеров в "Академии Элтекс"' },
+      { number: '05', title: 'Практика для студентов технических специальностей' },
+      { number: '06', title: 'Техническая поддержка на русском и казахском языках' },
       { number: '07', title: 'Проверка гарантии оборудования' },
     ],
     imageLabels: [
@@ -136,15 +142,18 @@ const contentByLocale: Record<Locale, ServicesContent> = {
     titleAccent: 'SOLUTIONS',
     titleEnd: '',
     description:
-      'We provide comprehensive telecommunications solutions — from equipment supply and manufacturing to repair, training and technical support.',
+      'We provide comprehensive telecommunications solutions — from equipment manufacturing and supply to training, technical, warranty and post-warranty support.',
     imageAlt: 'Services',
     items: [
-      { number: '01', title: 'Manufacturing and supply of telecommunications equipment' },
-      { number: '02', title: 'Contract manufacturing' },
-      { number: '03', title: 'Equipment repair and service maintenance' },
-      { number: '04', title: 'Equipment provided for testing' },
-      { number: '05', title: 'Training and certification programs for specialists' },
-      { number: '06', title: 'Internships for technical students' },
+      { number: '01', title: 'Contract manufacturing and SMD and THT board assembly services' },
+      { number: '02', title: 'Providing equipment for Eltex hardware testing' },
+      { number: '03', title: 'Repair and maintenance of Eltex equipment' },
+      {
+        number: '04',
+        title: 'Engineer training programs and certification at the "Eltex Academy"',
+      },
+      { number: '05', title: 'Internship for students of technical specialties' },
+      { number: '06', title: 'Technical support in Russian and Kazakh languages' },
       { number: '07', title: 'Equipment warranty verification' },
     ],
     imageLabels: [
@@ -171,10 +180,6 @@ export default function Services({ locale }: ServicesProps) {
             <div className="h-2 w-2 rounded-full bg-[#353EEA]" />
             <h2 className="text-lg font-semibold text-black">{content.badge}</h2>
           </div>
-          <h3 className="mt-4 flex flex-col gap-1 text-3xl font-semibold tracking-wide text-black sm:text-4xl lg:gap-2 lg:text-5xl">
-            {content.titleStart} <span className="text-[#353EEA]">{content.titleAccent}</span>{' '}
-            {content.titleEnd}
-          </h3>
           <p className="mt-4 max-w-lg text-black">{content.description}</p>
           <div className="mt-4 h-[2px] w-[30%] bg-[#353EEA]" />
 

@@ -101,9 +101,9 @@ const contentByLocale: Record<Locale, InfrastructureContent> = {
     items: [
       {
         img: '/infra/10.jpeg',
-        title: 'ОПЫТ НА РЫНКЕ',
-        value: '12+',
-        text: 'лет производства оборудования',
+        title: '',
+        value: 'ФИНАЛЬНАЯ СБОРКА',
+        text: '',
         className: 'sm:col-span-1 xl:col-span-4 xl:row-span-2',
       },
       {
@@ -115,22 +115,23 @@ const contentByLocale: Record<Locale, InfrastructureContent> = {
       },
       {
         img: '/infra/9.jpg',
-        title: 'НАГРАДА',
-        text: 'Премия Президента РК «Алтын Сапа» 2015 года',
+        title: 'ОПЫТ НА РЫНКЕ',
+        value: '12+',
+        text: 'лет производства оборудования',
         className: 'sm:col-span-2 xl:col-span-4 xl:row-span-2',
       },
       {
         img: '/infra/11.jpeg',
-        title: 'КОНТРОЛЬ КАЧЕСТВА',
-        value: '3 ступени',
-        text: 'многоуровневая система проверки',
+        title: '',
+        value: 'МОНТАЖ ПЛАТ',
+        text: 'SMD и ТНТ',
         className: 'sm:col-span-1 xl:col-span-4 xl:row-span-1',
       },
       {
         img: '/infra/5.webp',
-        title: 'СТРАНЫ ПРИСУТСТВИЯ',
-        value: '3',
-        text: 'Казахстан, Узбекистан, Кыргызстан',
+        title: 'КОНТРОЛЬ КАЧЕСТВА',
+        value: '3 ступени',
+        text: 'многоуровневая система проверки',
         className: 'sm:col-span-1 xl:col-span-4 xl:row-span-1',
       },
       {

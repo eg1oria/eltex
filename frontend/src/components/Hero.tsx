@@ -40,9 +40,12 @@ export default function Hero({ locale }: HeroProps) {
           <p className="max-w-sm text-sm text-white/80 sm:text-base md:max-w-lg lg:text-lg">
             {description}
           </p>
-          <button className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-3 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-4 lg:text-base">
+          <a
+            href="https://wa.me/77014673649"
+            target="_blank"
+            className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-3 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-4 lg:text-base">
             {cta} <MdOutlineKeyboardArrowRight size={24} />
-          </button>
+          </a>
         </div>
 
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:flex lg:gap-4">

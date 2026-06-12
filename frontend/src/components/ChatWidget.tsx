@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const TG_TOKEN: string = '8507762662:AAHJ2fdVvTXZrOlhYkiujA54pnoK3Ho0AYs';
-const TG_CHAT_ID: string = '-1003986708253';
+const TG_CHAT_ID: string = '-5175306815';
 const SITE: string = 'eltexalatau.kz';
 const TG_ON: boolean = TG_TOKEN !== '';
 

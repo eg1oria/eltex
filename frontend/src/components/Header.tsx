@@ -166,12 +166,13 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
         </nav>
 
         <div className="mt-auto pt-6">
-          <Link
-            href="#contacts"
-            onClick={(event) => handleAnchorClick(event, '#contacts')}
+          <a
+            href="https://wa.me/77014673649"
+            target="_blank"
+            rel="noopener noreferrer"
             className="block w-full py-3 border border-[#353EEA] text-center text-white rounded-full hover:bg-[#353EEA] transition-colors duration-200 text-base font-medium touch-manipulation">
             {requestCta}
-          </Link>
+          </a>
         </div>
       </div>
     </>
