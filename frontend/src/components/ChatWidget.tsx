@@ -494,12 +494,16 @@ export default function ChatWidget() {
           background: white; border-top: 1px solid #e2e8f0; flex-shrink: 0;
         }
         .cw-textarea {
-          flex: 1; border: 1px solid #e2e8f0; border-radius: 8px;
-          padding: 9px 12px; font-size: 13.5px;
+          flex: 1; min-width: 0; border: 1px solid #e2e8f0; border-radius: 8px;
+          padding: 9px 12px;
+          /* 16px минимум — предотвращает зум на iOS Safari при фокусе */
+          font-size: 16px;
           font-family: 'Inter', system-ui, sans-serif;
-          resize: none; outline: none; line-height: 1.5; color: #1e293b;
-          max-height: 84px; background: #f8fafc;
+          resize: none; outline: none; line-height: 1.45; color: #1e293b;
+          max-height: 80px; background: #f8fafc;
           transition: border-color .15s, background .15s;
+          /* Отключаем нативное масштабирование */
+          touch-action: manipulation;
         }
         .cw-textarea:focus { border-color: #0f52ba; background: white; }
         .cw-textarea::placeholder { color: #94a3b8; }
@@ -508,6 +512,7 @@ export default function ChatWidget() {
           background: #0f52ba; border: none; cursor: pointer;
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
+          touch-action: manipulation;
           transition: background .15s, opacity .15s;
         }
         .cw-send:hover { background: #0d47a8; }
@@ -533,7 +538,20 @@ export default function ChatWidget() {
         @keyframes cw-tin { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 430px) {
-          .cw-win { width: calc(100vw - 16px); right: 8px; bottom: 82px; }
+          .cw-win {
+            width: calc(100vw - 16px);
+            right: 8px;
+            bottom: 82px;
+            /* dvh учитывает виртуальную клавиатуру; fallback на vh */
+            max-height: calc(100vh - 110px);
+            max-height: calc(100dvh - 110px);
+          }
+          .cw-send {
+            /* Зафиксированный размер — кнопка не сжимается */
+            flex-shrink: 0;
+            width: 40px; height: 40px;
+          }
+          .cw-textarea { font-size: 16px; }
         }
       `}</style>
 
