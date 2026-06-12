@@ -7,11 +7,7 @@ type AboutProps = {
 export default function About({ locale }: AboutProps) {
   const t = createTranslator(locale);
   const badge = t('about.badge');
-  const title = t('about.title');
-  const accentTitle = t('about.accentTitle');
-  const description = t('about.description');
   const btn = t('about.btn');
-  const items = t('about.items') as AboutItem[];
 
   return (
     <section
