@@ -16,7 +16,7 @@ type FooterContent = {
   userAgreement: string;
 };
 
-const footerLinkHrefs = ['#about', '#services', '#companies', '#contacts'];
+const footerLinkHrefs = ['#about', '#advantages', '#services', '#contacts'];
 
 const contentByLocale: Record<Locale, FooterContent> = {
   kk: {
@@ -104,14 +104,6 @@ export default function Footer({ locale }: FooterProps) {
                   href="tel:+79037181331"
                   className="text-sm  text-black transition-colors hover:text-[#353EEA]">
                   +7 701 467 3649
-                </a>
-              </div>
-
-              <div className="flex flex-col">
-                <a
-                  href="tel:+77775105005"
-                  className="text-sm  text-black underline transition-colors hover:text-[#353EEA]">
-                  +7 701 765 4148
                 </a>
               </div>
 

@@ -88,15 +88,6 @@ export default function Contacts({ locale }: ContactsProps) {
           </div>
 
           <div className="flex flex-col">
-            <span className="text-xs text-gray-500 mb-1">{content.phoneTwoLabel}</span>
-            <a
-              href="tel:+77775105005"
-              className="text-sm font-semibold text-black underline hover:text-[#353EEA] transition-colors">
-              +7 701 765 4148
-            </a>
-          </div>
-
-          <div className="flex flex-col">
             <span className="text-xs text-gray-500 mb-1">{content.emailOneLabel}</span>
             <a
               href="mailto:sergey.arutunov@htl.kz"
