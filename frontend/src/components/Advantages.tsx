@@ -15,7 +15,9 @@ export default function Advantages({ locale }: AdvantagesProps) {
   const stats = t('advantages.stats') as AdvantageStat[];
 
   return (
-    <section className="relative px-4 sm:px-10 lg:px-36 py-12 lg:py-16 bg-black overflow-hidden">
+    <section
+      id="advantages"
+      className="relative px-4 sm:px-10 lg:px-36 py-12 lg:py-16 bg-black overflow-hidden">
       <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-64 lg:top-0 lg:right-0 lg:left-auto lg:w-1/2 lg:h-full">
         <Image
           src="/bg-adv.webp"

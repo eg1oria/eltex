@@ -12,7 +12,7 @@ type HeaderProps = {
   onSelectLocale: (locale: Locale) => void;
 };
 
-const headerLinkHrefs = ['#about', '#services', '#companies', '#contacts'];
+const headerLinkHrefs = ['#about', '#advantages', '#services', '#contacts'];
 const scrollOffset = 96;
 
 export default function Header({ locale, onSelectLocale }: HeaderProps) {

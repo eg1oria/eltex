@@ -93,8 +93,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     header: {
       navLinks: [
         { label: 'Компания туралы' },
+        { label: 'Артықшылықтар' },
         { label: 'Қызметтер' },
-        { label: 'Компаниялар' },
         { label: 'Байланыс' },
       ],
       requestCta: 'Өтінім қалдыру',
@@ -225,8 +225,8 @@ const dictionaries: Record<Locale, Dictionary> = {
     header: {
       navLinks: [
         { label: 'О компании' },
+        { label: 'Преимущества' },
         { label: 'Услуги' },
-        { label: 'Компании' },
         { label: 'Контакты' },
       ],
       requestCta: 'Оставить заявку',
@@ -356,10 +356,10 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     header: {
       navLinks: [
-        { label: 'About Us' },
+        { label: 'About' },
+        { label: 'Advantages' },
         { label: 'Services' },
-        { label: 'Companies' },
-        { label: 'Contacts' },
+        { label: 'Contact' },
       ],
       requestCta: 'Submit a request',
       menuLabel: 'Menu',
