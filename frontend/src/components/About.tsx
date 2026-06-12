@@ -23,37 +23,13 @@ export default function About({ locale }: AboutProps) {
         <h2 className="text-lg font-semibold text-black">{badge}</h2>
       </div>
 
-      <div className="mt-4 grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-16">
-        <div>
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black tracking-wide mt-4">
-            {title} <span className="text-[#353EEA]">{accentTitle}</span>
-          </h3>
-          <div className="mt-4 max-w-xl flex flex-col gap-4">
-            <p className="text-black">{description}</p>
-          </div>
-          <a
-            href="/presentation.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-2 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-2 lg:text-base">
-            {btn}
-          </a>
-        </div>
-        <ul className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
-          {items.map((item, index) => (
-            <li
-              key={index}
-              className="flex min-h-32 items-center gap-3 rounded-lg bg-white p-4 lg:p-6"
-              style={{ boxShadow: '0px 2px 7px 0px rgba(34, 60, 80, 0.2)' }}>
-              <img src={item.icon} width={52} height={52} alt={item.title} className="shrink-0" />
-              <div className="min-w-0">
-                <h4 className="font-semibold text-black">{item.title}</h4>
-                <p className="text-gray-600">{item.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <a
+        href="/presentation.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-2 text-sm text-white sm:mt-6 sm:w-max sm:justify-start lg:mt-6 lg:px-6 lg:py-2 lg:text-base">
+        {btn}
+      </a>
     </section>
   );
 }

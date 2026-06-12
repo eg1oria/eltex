@@ -31,8 +31,8 @@ export default function HomePage() {
       <About locale={locale} />
       <Advantages locale={locale} />
       <Services locale={locale} />
-      <Infrastructure locale={locale} />
-      <Achievements locale={locale} />
+      {/* <Infrastructure locale={locale} />
+      <Achievements locale={locale} />*/}
       <Contacts locale={locale} />
       <Footer locale={locale} />
       <ChatWidget />

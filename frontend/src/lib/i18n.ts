@@ -305,12 +305,12 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         {
           title: [
-            { text: 'Выпускаемая', accent: false },
+            { text: 'Выпускаемая ', accent: false },
             { text: 'продукция', accent: false },
           ],
           text: [
-            { text: 'Оборудование операторского класса Eltex ', accent: false },
-            { text: 'Промышленная и сельскохозяйственная электроника ', accent: true },
+            { text: 'Оборудование операторского класса Eltex. ', accent: false },
+            { text: 'Промышленная и сельскохозяйственная электроника. ', accent: true },
             { text: 'Носимая электроника премиум-сегмента', accent: false },
           ],
         },
@@ -338,7 +338,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
       ],
       stats: [
-        { title: '12+', text: 'лет на рынке' },
+        { title: '14+', text: 'лет на рынке' },
         { title: '20+', text: 'альтернативных провайдеров' },
         { title: '3', text: 'страны присутствия' },
         { title: '2015', text: 'премия «Алтын Сапа»' },
