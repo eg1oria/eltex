@@ -99,7 +99,6 @@ const contentByLocale: Record<Locale, ServicesContent> = {
       },
       { number: '05', title: 'Техникалық мамандықтардағы студенттерге арналған тәжірибе' },
       { number: '06', title: 'Орыс және қазақ тілдерінде техникалық қолдау' },
-      { number: '07', title: 'Жабдық кепілдігін тексеру' },
     ],
     imageLabels: [
       { key: 'storage', title: 'Өз өндірісіміз', meta: '«Алатау» АИП ЕЭА' },
@@ -153,7 +152,6 @@ const contentByLocale: Record<Locale, ServicesContent> = {
       },
       { number: '05', title: 'Internship for students of technical specialties' },
       { number: '06', title: 'Technical support in Russian and Kazakh languages' },
-      { number: '07', title: 'Equipment warranty verification' },
     ],
     imageLabels: [
       { key: 'storage', title: 'In-house manufacturing', meta: 'SEZ PIT «Alatau»' },

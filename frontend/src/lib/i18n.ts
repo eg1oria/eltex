@@ -115,14 +115,9 @@ const dictionaries: Record<Locale, Dictionary> = {
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: '«Алтын Сапа» сыйлығы',
-          text: '2015 жылы «Үздік инновациялық жоба» номинациясында ҚР Президентінің сыйлығы лауреаты',
+          title: 'Компанияның ресурстары мен мүмкіндіктері:',
+          text: 'SMD және ТНТ - платаларды монтаждау; Тестілеу; Қорытынды жинау',
           img: '/hero/hero-icon2.webp',
-        },
-        {
-          title: '3 елде қатысу',
-          text: 'Жабдық Қазақстан, Өзбекстан және Қырғызстан операторларында жұмыс істейді',
-          img: '/hero/hero-icon3.webp',
         },
       ],
     },
@@ -374,14 +369,9 @@ const dictionaries: Record<Locale, Dictionary> = {
           img: '/hero/hero-icon1.webp',
         },
         {
-          title: '«Altyn Sapa» Award',
-          text: 'Winner of the President of Kazakhstan Award in the «Best Innovative Project» category, 2015',
+          title: 'Company resources and capabilities:',
+          text: 'SMD and THT - PCB assembly; Testing; Final assembly',
           img: '/hero/hero-icon2.webp',
-        },
-        {
-          title: '3 countries of presence',
-          text: 'Equipment operating with operators in Kazakhstan, Uzbekistan and Kyrgyzstan',
-          img: '/hero/hero-icon3.webp',
         },
       ],
     },
