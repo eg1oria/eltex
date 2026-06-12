@@ -89,7 +89,7 @@ export default function Header({ locale, onSelectLocale }: HeaderProps) {
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-1 shrink-0 cursor-pointer">
-              <Image src="/header-logo2.png" width={250} height={44} alt="logo" />
+              <Image src="/logo.png" width={170} height={44} alt="logo" />
             </Link>
 
             <nav className="hidden lg:block">

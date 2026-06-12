@@ -61,7 +61,7 @@ export default function Footer({ locale }: FooterProps) {
       <div className="grid grid-cols-1 items-start gap-8 px-4 py-12 sm:px-10 md:grid-cols-3 md:gap-12 lg:px-36 lg:py-16">
         <div>
           <Link href="/" className="flex items-center gap-1 shrink-0 cursor-pointer">
-            <Image src="/header-logo2.png" width={250} height={44} alt="logo" />
+            <Image src="/logo.png" width={170} height={44} alt="logo" />
           </Link>
           <p
             className="text-black sm:text-base lg:text-lg leading-tight mt-4 max-w-[250px]"
