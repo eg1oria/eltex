@@ -9,7 +9,7 @@ type HeroProps = {
 export default function Hero({ locale }: HeroProps) {
   const t = createTranslator(locale);
   const description = t('hero.description');
-  const cta = t('hero.cta');
+  const cta2 = t('hero.cta2');
   const items = t('hero.items') as HeroItem[];
 
   return (
@@ -44,7 +44,7 @@ export default function Hero({ locale }: HeroProps) {
             href="https://wa.me/77014673649"
             target="_blank"
             className="mt-1 flex w-full items-center justify-center gap-1 rounded-full bg-[#353EEA] px-5 py-3 text-sm text-white sm:mt-2 sm:w-max sm:justify-start lg:mt-4 lg:px-6 lg:py-4 lg:text-base">
-            {cta} <MdOutlineKeyboardArrowRight size={24} />
+            {cta2} <MdOutlineKeyboardArrowRight size={24} />
           </a>
         </div>
 

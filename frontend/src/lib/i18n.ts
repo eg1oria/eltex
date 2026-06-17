@@ -42,6 +42,7 @@ type Dictionary = {
   hero: {
     description: string;
     cta: string;
+    cta2: string;
     items: HeroItem[];
   };
   about: {
@@ -76,6 +77,7 @@ type TranslationMap = {
   'hero.description': string;
   'about.btn': string;
   'hero.cta': string;
+  'hero.cta2': string;
   'hero.items': HeroItem[];
   'about.badge': string;
   'about.title': string;
@@ -119,15 +121,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'ЭлтексАлатау — электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Новосибирск Элтекс зауытының жалғыз ресми өкілі. Компания 2012 жылы құрылған.',
       cta: 'Монтаж құнын бағалау',
+      cta2: 'Жобаны тіркеу',
       items: [
         {
-          title: 'Алматыдағы өндіріс',
-          text: '«Алатау» АИП ЕЭА аумағындағы өндірістік кешен',
+          title: 'Өндіріс Алматыда',
+          text: 'РК барлық аймақтарына жеткізу',
           img: '/hero/hero-icon1.webp',
         },
         {
           title: 'Компанияның ресурстары мен мүмкіндіктері:',
-          text: 'SMD және ТНТ - платаларды монтаждау; Тестілеу; Қорытынды жинау',
+          text: 'Техникалық қолдау (орыс, қазақ тілдерінде), жеткізу мерзімдері және кепілдіктен кейінгі қолдау',
           img: '/hero/hero-icon2.webp',
         },
       ],
@@ -168,7 +171,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'СТАРТАПТАРҒА. ӨНДІРУШІЛЕРГЕ.',
       accentTitle: 'ӘЗІРЛЕУШІЛЕРГЕ.',
       description:
-        'Біз операторлық деңгейдегі телекоммуникациялық жабдықтарды әзірлеп, өндіреміз және тапсырыс берушінің инфрақұрылымына үздіксіз интеграцияны қамтамасыз етеміз.',
+        'Біз тапсырыс берушінің инфрақұрылымына үздіксіз кірігуді қамтамасыз ете отырып, операторлық деңгейдегі телекоммуникациялық жабдықтарды өндіреміз, сонымен қатар басқа IT құрылғылары үшін платаларды SMD/THT әдісімен монтаждау бойынша қызметтер көрсетеміз.',
       items: [
         {
           title: [
@@ -250,16 +253,17 @@ const dictionaries: Record<Locale, Dictionary> = {
     hero: {
       description:
         'Ваша IT - инфраструктура под нашим контролем. Тех. поддержка (русский, казахский), сроки поставки и пост гарантийная поддержка',
-      cta: 'Оценить стоимость монтажа',
+      cta: 'Регистрация проекта',
+      cta2: 'Оценить стоимость монтажа',
       items: [
         {
-          title: 'Производство в Алматы',
-          text: 'Производственный комплекс на территории СЭЗ ПИТ «Алатау»',
+          title: 'Склад в Алматы',
+          text: 'Доставка по регионам РК',
           img: '/hero/hero-icon1.webp',
         },
         {
           title: 'Ресурсы и возможности компании:',
-          text: 'SMD и ТНТ - монтаж плат; Тестирование; Финальная сборка',
+          text: 'Тех. поддержка (русский, казахский), сроки поставки и пост гарантийная поддержка',
           img: '/hero/hero-icon2.webp',
         },
       ],
@@ -297,10 +301,10 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     advantages: {
       badge: 'ПРЕИМУЩЕСТВА',
-      title: 'СТАРТАПАМ. ПРОИЗВОДИТЕЛЯМ.',
-      accentTitle: 'РАЗРАБОТЧИКАМ.',
+      title: 'ИНТЕГРАТОРАМ. ОПЕРАТОРАМ СВЯЗИ.',
+      accentTitle: 'КОРПОРАТИВНЫМ и ГОС. ЗАКАЗЧИКАМ.',
       description:
-        'Мы разрабатываем и производим телекоммуникационное оборудование операторского уровня, обеспечивая бесшовную интеграцию в инфраструктуру заказчика.',
+        'Мы производим телекоммуникационное оборудование операторского уровня, обеспечивая бесшовную интеграцию в инфраструктуру заказчика, оказываем услуги по SMD-ТНТ монтажу плат для иных IT устройств.',
       items: [
         {
           title: [
@@ -383,15 +387,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'EltexAlatau is a manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Novosibirsk Eltex factory in Kazakhstan. Founded in 2012.',
       cta: 'Get installation quote',
+      cta2: 'Register project',
       items: [
         {
-          title: 'Production in Almaty',
-          text: 'Manufacturing facility located in the SEZ PIT «Alatau»',
+          title: 'Manufacturing in Almaty',
+          text: 'Delivery to all regions of Kazakhstan',
           img: '/hero/hero-icon1.webp',
         },
         {
           title: 'Company resources and capabilities:',
-          text: 'SMD and THT - PCB assembly; Testing; Final assembly',
+          text: 'Technical support (Russian, Kazakh), delivery timelines, and post-warranty support',
           img: '/hero/hero-icon2.webp',
         },
       ],
@@ -432,7 +437,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'FOR STARTUPS. FOR MANUFACTURERS.',
       accentTitle: 'FOR DEVELOPERS.',
       description:
-        "We develop and manufacture carrier-grade telecommunications equipment, ensuring seamless integration into the customer's infrastructure.",
+        "We manufacture carrier-grade telecommunications equipment, ensuring seamless integration into the customer's infrastructure, and provide SMD/THT PCB assembly services for other IT devices.",
       items: [
         {
           title: [
