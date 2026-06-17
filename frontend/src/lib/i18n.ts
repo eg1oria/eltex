@@ -336,7 +336,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         { title: '14+', text: 'лет на рынке' },
         { title: '1млн+', text: 'исполненных заказов' },
         { title: '50+', text: 'видов номенклатуры' },
-        { title: '50+', text: 'довольных заказчиков' },
+        { title: '70+', text: 'довольных заказчиков' },
       ],
     },
   },
