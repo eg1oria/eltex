@@ -9,7 +9,7 @@ import {
   LuThermometer,
   LuTrash2,
 } from 'react-icons/lu';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/lib/eltex';
 
 type ServiceItem = {
   number: string;

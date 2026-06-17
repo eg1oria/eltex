@@ -5,7 +5,7 @@ import About from '@/components/About';
 import Advantages from '@/components/Advantages';
 import Header from '@/components/Header';
 import Hero from './Hero';
-import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n';
+import { DEFAULT_LOCALE, type Locale } from '@/lib/eltex';
 import ChatWidget from './ChatWidget';
 import Services from './Services';
 import Contacts from './Contacts';

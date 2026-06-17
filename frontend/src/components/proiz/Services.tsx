@@ -9,7 +9,7 @@ import {
   LuThermometer,
   LuTrash2,
 } from 'react-icons/lu';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/lib/eltex';
 
 type ServiceItem = {
   number: string;
@@ -126,7 +126,11 @@ const contentByLocale: Record<Locale, ServicesContent> = {
       { number: '06', title: 'Техническая поддержка на русском и казахском языках' },
     ],
     imageLabels: [
-      { key: 'storage', title: 'Собственное производство', meta: 'СЭЗ ПИТ «Алатау»' },
+      {
+        key: 'storage',
+        title: 'Собственное производство',
+        meta: 'г Алматы, мкр. Алатау, ул. гумилёва, 16',
+      },
       { key: 'customs', title: 'Контрактное производство' },
       { key: 'packing', title: 'Ремонт и сервис оборудования' },
       { key: 'serialization', title: 'Тестирование оборудования' },

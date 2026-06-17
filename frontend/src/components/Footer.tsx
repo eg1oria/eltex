@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { createTranslator, type Locale, type NavigationLink } from '@/lib/i18n';
+import { createTranslator, type Locale, type NavigationLink } from '@/lib/eltex';
 
 type FooterProps = {
   locale: Locale;

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/lib/eltex';
 
 type Item = {
   img: string;

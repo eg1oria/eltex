@@ -171,7 +171,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'СТАРТАПТАРҒА. ӨНДІРУШІЛЕРГЕ.',
       accentTitle: 'ӘЗІРЛЕУШІЛЕРГЕ.',
       description:
-        'Біз тапсырыс берушінің инфрақұрылымына үздіксіз кірігуді қамтамасыз ете отырып, операторлық деңгейдегі телекоммуникациялық жабдықтарды өндіреміз, сонымен қатар басқа IT құрылғылары үшін платаларды SMD/THT әдісімен монтаждау бойынша қызметтер көрсетеміз.',
+        'Жобаңызға брендтерді ауыстыру нұсқасын іздеп жүрсіз бе? Eltex компаниясының кешенді шешімдерін көрсету арқылы тегін тестілеу. Технологиялар: xPON, ДОЖ (Деректерді өңдеу жайлары), қол жеткізу және агрегациялау желілері, Wi-Fi, IP АТС, VoIP телефония, бейнекамералар және бейнеаналитика. Бүгінгі күні желілер Eltex-тен басталады.',
       items: [
         {
           title: [
@@ -221,9 +221,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       ],
       stats: [
         { title: '14+', text: 'нарықта жыл' },
-        { title: '1млн+', text: 'өнім өндірілді' },
-        { title: '50+', text: 'номенклатура түрі' },
-        { title: '70+', text: 'қанағаттанған тапсырыс беруші' },
+        { title: '4,5млн+', text: 'Ethernet портов' },
+        { title: '12млн', text: 'PON OLT портов' },
+        { title: '6,1млн', text: 'VoIP портов' },
       ],
     },
   },
@@ -304,59 +304,54 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'ИНТЕГРАТОРАМ. ОПЕРАТОРАМ СВЯЗИ.',
       accentTitle: 'КОРПОРАТИВНЫМ и ГОС. ЗАКАЗЧИКАМ.',
       description:
-        'Мы производим телекоммуникационное оборудование операторского уровня, обеспечивая бесшовную интеграцию в инфраструктуру заказчика, оказываем услуги по SMD-ТНТ монтажу плат для иных IT устройств.',
+        'Ищете замену по брендам на проект? - Бесплатное тестирование с демонстрацией комплексных решений от Eltex. Технологии: xPON, ЦОД, Сети доступа и агрегации, Wi-Fi, IP ATC, VoIP телефония, видеокамеры и видеоаналитика. Сегодня сети начинаются с Eltex.',
       items: [
         {
           title: [
-            { text: 'Собственное ', accent: false },
-            { text: 'производство', accent: false },
+            { text: 'Партнерская ', accent: false },
+            { text: 'программа', accent: false },
           ],
           text: [
-            { text: 'Полный цикл ', accent: false },
-            { text: 'производства ', accent: true },
-            { text: 'на территории СЭЗ ПИТ «Алатау»', accent: false },
-            { text: ' в Алматы.', accent: false },
+            { text: 'Привилегии для партнеров Eltex. ', accent: false },
+            { text: 'Возможность стать ', accent: false },
+            { text: 'Авторизированным партнером', accent: true },
           ],
         },
         {
           title: [
-            { text: 'Выпускаемая ', accent: false },
-            { text: 'продукция', accent: false },
+            { text: 'Академия ', accent: false },
+            { text: 'Eltex', accent: false },
           ],
           text: [
-            { text: 'Оборудование операторского класса Eltex. ', accent: false },
-            { text: 'Промышленная и сельскохозяйственная электроника. ', accent: true },
-            { text: 'Носимая электроника премиум-сегмента', accent: false },
+            { text: 'Обучение в групах ', accent: false },
+            { text: 'по направлениям MES ESR VoIP WI-FI ', accent: true },
+            { text: 'Аттестация и сертификация', accent: false },
           ],
         },
         {
           title: [
-            { text: 'Контроль качества ', accent: false },
-            { text: 'на всех этапах', accent: false },
+            { text: 'Техническая и  ', accent: false },
+            { text: 'постграйтийная поддержка', accent: false },
           ],
           text: [
-            { text: '3-х ступенчатая система ', accent: false },
-            { text: 'контроля качества', accent: true },
-            { text: ' каждого устройства.', accent: false },
+            { text: 'Стандартная 8/5 (казахский, русский) ', accent: false },
+            { text: 'постгарантийное сервисное обслуживание', accent: true },
           ],
         },
         {
-          title: [
-            { text: 'Локализация ', accent: true },
-            { text: 'в Казахстане', accent: false },
-          ],
+          title: [{ text: 'Сетификация ', accent: true }],
           text: [
-            { text: 'Производство и поддержка ', accent: false },
-            { text: 'оборудования прямо в стране — ', accent: false },
-            { text: 'быстро и надёжно.', accent: false },
+            { text: 'СТ-1 ', accent: false },
+            { text: 'Выпистка с реестра КТП ', accent: false },
+            { text: 'Сертификат инф. безопасности', accent: false },
           ],
         },
       ],
       stats: [
         { title: '14+', text: 'лет на рынке' },
-        { title: '1млн+', text: 'произведенной продукции' },
-        { title: '50+', text: 'видов номенклатуры' },
-        { title: '70+', text: 'довольных заказчиков' },
+        { title: '4,5млн+', text: 'Ethernet портов' },
+        { title: '12млн', text: 'PON OLT портов' },
+        { title: '6,1млн', text: 'VoIP портов' },
       ],
     },
   },
@@ -437,7 +432,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'FOR STARTUPS. FOR MANUFACTURERS.',
       accentTitle: 'FOR DEVELOPERS.',
       description:
-        "We manufacture carrier-grade telecommunications equipment, ensuring seamless integration into the customer's infrastructure, and provide SMD/THT PCB assembly services for other IT devices.",
+        'Looking for a brand replacement for your project? Free testing with a demonstration of comprehensive Eltex solutions. Technologies: xPON, Data Centers, Access and Aggregation Networks, Wi-Fi, IP PBX, VoIP telephony, video cameras and video analytics. Today, networks start with Eltex.',
       items: [
         {
           title: [
@@ -487,9 +482,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       ],
       stats: [
         { title: '14+', text: 'years in the market' },
-        { title: '1M+', text: 'units of production' },
-        { title: '50+', text: 'types of products' },
-        { title: '70+', text: 'satisfied customers' },
+        { title: '4,5M+', text: 'Ethernet ports' },
+        { title: '12M+', text: 'PON OLT ports' },
+        { title: '6,1M+', text: 'VoIP ports' },
       ],
     },
   },

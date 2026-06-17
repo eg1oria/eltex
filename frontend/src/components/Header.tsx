@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState, useEffect, type MouseEvent } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
-import { createTranslator, type Locale, type NavigationLink } from '@/lib/i18n';
+import { createTranslator, type Locale, type NavigationLink } from '@/lib/eltex';
 import LocaleSwitcher from './Swither';
 import Link from 'next/link';
 

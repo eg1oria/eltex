@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { createTranslator, type AdvantageItem, type AdvantageStat, type Locale } from '@/lib/i18n';
+import { createTranslator, type AdvantageItem, type AdvantageStat, type Locale } from '@/lib/eltex';
 
 type AdvantagesProps = {
   locale: Locale;

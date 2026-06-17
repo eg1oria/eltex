@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { DEFAULT_LOCALE, createTranslator } from '@/lib/i18n';
+import { DEFAULT_LOCALE, createTranslator } from '@/lib/eltex';
 import './globals.css';
 
 const t = createTranslator(DEFAULT_LOCALE);

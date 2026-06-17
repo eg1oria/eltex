@@ -1,4 +1,4 @@
-import { createTranslator, type Locale } from '@/lib/i18n';
+import { createTranslator, type Locale } from '@/lib/eltex';
 
 type AboutProps = {
   locale: Locale;

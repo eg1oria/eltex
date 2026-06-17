@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { createTranslator, type HeroItem, type Locale } from '@/lib/i18n';
+import { createTranslator, type HeroItem, type Locale } from '@/lib/eltex';
 
 type HeroProps = {
   locale: Locale;
