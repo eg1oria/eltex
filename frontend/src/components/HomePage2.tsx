@@ -6,7 +6,7 @@ import Advantages from '@/components/Advantages';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n';
-import ChatWidget from '@/components/ChatWidget';
+import ChatWidget from './ChatWidget';
 import Services from './Services';
 import Infrastructure from './Infrastrucrure';
 import Achievements from './Achievements';
