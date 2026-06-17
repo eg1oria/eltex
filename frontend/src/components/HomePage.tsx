@@ -10,7 +10,6 @@ import ChatWidget from '@/components/ChatWidget';
 import Services from './Services';
 import Contacts from './Contacts';
 import Footer from './Footer';
-import Proizvod from './Proizvod';
 
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
@@ -33,7 +32,6 @@ export default function HomePage() {
       {/* <Infrastructure locale={locale} />
       <Achievements locale={locale} />*/}
       <Contacts locale={locale} />
-      <Proizvod locale={locale} />
       <Footer locale={locale} />
       <ChatWidget />
     </>
