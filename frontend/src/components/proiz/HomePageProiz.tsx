@@ -11,7 +11,7 @@ import Services from './Services';
 import Contacts from './Contacts';
 import Footer from './Footer';
 
-export default function HomePage() {
+export default function HomePageProiz() {
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {

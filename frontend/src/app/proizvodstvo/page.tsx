@@ -1,5 +1,5 @@
-import HomePage from '@/components/HomePage';
+import HomePageProiz from '@/components/proiz/HomePageProiz';
 
 export default function Home() {
-  return <HomePage />;
+  return <HomePageProiz />;
 }
