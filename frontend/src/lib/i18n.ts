@@ -218,7 +218,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ],
       stats: [
         { title: '14+', text: 'нарықта жыл' },
-        { title: '1млн+', text: 'орындалған тапсырыс' },
+        { title: '1млн+', text: 'өнім өндірілді' },
         { title: '50+', text: 'номенклатура түрі' },
         { title: '70+', text: 'қанағаттанған тапсырыс беруші' },
       ],
@@ -249,7 +249,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     hero: {
       description:
-        'ЭлтексАлатау — производитель телекоммуникационного оборудования в Алматы. Контрактное производство (локализация) и услуги SMD-монтажа плат. Компания основана в 2012 году.',
+        'Ваша IT - инфраструктура под нашим контролем. Тех. поддержка (русский, казахский), сроки поставки и пост гарантийная поддержка',
       cta: 'Оценить стоимость монтажа',
       items: [
         {
@@ -350,7 +350,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ],
       stats: [
         { title: '14+', text: 'лет на рынке' },
-        { title: '1млн+', text: 'исполненных заказов' },
+        { title: '1млн+', text: 'произведенной продукции' },
         { title: '50+', text: 'видов номенклатуры' },
         { title: '70+', text: 'довольных заказчиков' },
       ],
@@ -482,7 +482,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       ],
       stats: [
         { title: '14+', text: 'years in the market' },
-        { title: '1M+', text: 'completed orders' },
+        { title: '1M+', text: 'units of production' },
         { title: '50+', text: 'types of products' },
         { title: '70+', text: 'satisfied customers' },
       ],

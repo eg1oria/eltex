@@ -15,7 +15,7 @@ export default function Hero({ locale }: HeroProps) {
   return (
     <section className="relative flex items-start px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-12 md:px-16 md:pt-32 md:pb-14 lg:min-h-screen lg:items-center lg:px-36 lg:py-16">
       <Image
-        src={'/hero-bg2.jpeg'}
+        src={'/hero1.png'}
         fill
         alt="Hero Image"
         className="object-cover"
@@ -33,10 +33,7 @@ export default function Hero({ locale }: HeroProps) {
         }}
       />
       <div className="flex w-full flex-col gap-8 sm:gap-9 lg:gap-16">
-        <div className="flex flex-col gap-4 lg:gap-6">
-          <h1 className="flex flex-col text-4xl font-extrabold leading-none tracking-wider sm:text-6xl md:text-7xl lg:text-9xl lg:leading-tight">
-            ELTEX <span className="text-[#353EEA] leading-[1.2] tracking-wider">ALATAU</span>
-          </h1>
+        <div className="flex flex-col pt-30 gap-4 lg:gap-6">
           <p className="max-w-sm text-sm text-white/80 sm:text-base md:max-w-lg lg:text-lg">
             {description}
           </p>

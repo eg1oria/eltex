@@ -1,6 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { Inter } from 'next/font/google';
+import styles from './ChatWidget.module.css';
+
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600'],
+  variable: '--cw-font',
+  display: 'swap',
+});
 
 const TG_TOKEN: string = '8507762662:AAHJ2fdVvTXZrOlhYkiujA54pnoK3Ho0AYs';
 const TG_CHAT_ID: string = '-5175306815';
@@ -302,407 +311,156 @@ export default function ChatWidget() {
   };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    <div className={`${styles.cwRoot} ${inter.variable}`}>
+      {showBadge && !open && <div className={styles.cwBadge}>1</div>}
 
-        .cw-root { font-family: 'Inter', system-ui, sans-serif; }
+      <button className={styles.cwFab} onClick={open ? handleClose : handleOpen} aria-label="Чат">
+        {open ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+          </svg>
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+          </svg>
+        )}
+      </button>
 
-        /* FAB */
-        .cw-fab {
-          position: fixed; bottom: 24px; right: 24px;
-          width: 52px; height: 52px; border-radius: 50%; border: none;
-          cursor: pointer; z-index: 9999;
-          background: #0f52ba;
-          box-shadow: 0 4px 20px rgba(15,82,186,.4);
-          display: flex; align-items: center; justify-content: center;
-          transition: background .2s, box-shadow .2s, transform .15s;
-        }
-        .cw-fab:hover { background: #0d47a8; box-shadow: 0 6px 28px rgba(15,82,186,.5); transform: translateY(-1px); }
-        .cw-fab:active { transform: scale(.95); }
-
-        /* Badge */
-        .cw-badge {
-          position: fixed; bottom: 64px; right: 20px;
-          background: #e53935; color: white;
-          font-size: 10px; font-weight: 600;
-          width: 18px; height: 18px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          z-index: 10000;
-          font-family: 'Inter', system-ui, sans-serif;
-        }
-
-        /* Chat window */
-        .cw-win {
-          position: fixed; bottom: 88px; right: 24px;
-          width: 360px;
-          background: #fff; border-radius: 12px;
-          border: 1px solid #e2e8f0;
-          box-shadow: 0 8px 40px rgba(0,0,0,.12);
-          display: flex; flex-direction: column;
-          overflow: hidden; z-index: 9999;
-          opacity: 0; transform: translateY(12px); pointer-events: none;
-          transition: opacity .2s ease, transform .2s ease;
-          transform-origin: bottom right;
-          max-height: 580px;
-        }
-        .cw-win.cw-open { opacity: 1; transform: translateY(0); pointer-events: all; }
-
-        /* Header */
-        .cw-head {
-          background: #0f52ba;
-          padding: 14px 16px; display: flex; align-items: center; gap: 12px;
-          flex-shrink: 0;
-        }
-        .cw-ava {
-          width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-          background: rgba(255,255,255,.15);
-          display: flex; align-items: center; justify-content: center;
-        }
-        .cw-ava svg { display: block; }
-        .cw-head-info { flex: 1; min-width: 0; }
-        .cw-head-name { color: white; font-size: 13.5px; font-weight: 600; letter-spacing: -.01em; font-family: 'Inter', system-ui, sans-serif; }
-        .cw-head-status { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
-        .cw-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
-        .cw-head-status span { font-size: 11.5px; color: rgba(255,255,255,.6); font-family: 'Inter', system-ui, sans-serif; }
-        .cw-close-btn {
-          width: 28px; height: 28px; border-radius: 6px;
-          background: rgba(255,255,255,.1); border: none; color: rgba(255,255,255,.8);
-          font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-          transition: background .15s; flex-shrink: 0; line-height: 1;
-        }
-        .cw-close-btn:hover { background: rgba(255,255,255,.2); }
-
-        /* Messages */
-        .cw-msgs {
-          flex: 1; overflow-y: auto; padding: 16px 14px;
-          display: flex; flex-direction: column; gap: 10px;
-          background: #f8fafc; scroll-behavior: smooth;
-        }
-        .cw-msgs::-webkit-scrollbar { width: 3px; }
-        .cw-msgs::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-
-        .cw-date-div { display: flex; align-items: center; gap: 10px; margin: 2px 0 6px; }
-        .cw-date-div::before, .cw-date-div::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
-        .cw-date-div span { font-size: 11px; color: #94a3b8; white-space: nowrap; font-family: 'Inter', system-ui, sans-serif; letter-spacing: .02em; text-transform: uppercase; }
-
-        .cw-row { display: flex; align-items: flex-end; gap: 8px; animation: cw-msgin .18s ease; }
-        @keyframes cw-msgin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-        .cw-row.user { flex-direction: row-reverse; }
-
-        .cw-msg-col { display: flex; flex-direction: column; gap: 4px; max-width: 78%; }
-        .cw-row.user .cw-msg-col { align-items: flex-end; }
-
-        .cw-msg-ava {
-          width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
-          display: flex; align-items: center; justify-content: center;
-          background: #e2e8f0;
-        }
-        .cw-msg-ava svg { display: block; }
-        .cw-row.bot .cw-msg-ava { background: #0f52ba; }
-
-        .cw-bubble {
-          padding: 10px 13px 8px; border-radius: 12px;
-          font-size: 13.5px; line-height: 1.6; word-break: break-word;
-          font-family: 'Inter', system-ui, sans-serif;
-          white-space: pre-wrap;
-        }
-        .cw-row.bot .cw-bubble {
-          background: white; color: #1e293b;
-          border-bottom-left-radius: 3px;
-          border: 1px solid #e2e8f0;
-          box-shadow: 0 1px 4px rgba(0,0,0,.04);
-        }
-        .cw-row.user .cw-bubble {
-          background: #0f52ba; color: white;
-          border-bottom-right-radius: 3px;
-        }
-        .cw-btime { display: block; font-size: 10px; margin-top: 4px; opacity: .4; text-align: right; letter-spacing: .01em; }
-
-        /* Phone CTA under message */
-        .cw-phone-cta {
-          display: inline-flex; align-items: center; gap: 8px;
-          background: transparent;
-          color: #0f52ba; border: 1px solid #0f52ba; border-radius: 7px;
-          padding: 7px 13px; font-size: 12.5px; font-weight: 500;
-          font-family: 'Inter', system-ui, sans-serif;
-          cursor: pointer; white-space: nowrap;
-          transition: background .15s, color .15s;
-          animation: cw-ctain .2s ease;
-        }
-        @keyframes cw-ctain { from { opacity: 0; } to { opacity: 1; } }
-        .cw-phone-cta:hover { background: #0f52ba; color: white; }
-        .cw-phone-cta-dot {
-          width: 6px; height: 6px; border-radius: 50%; background: #22c55e; flex-shrink: 0;
-        }
-
-        /* Typing dots */
-        .cw-typing .cw-bubble { padding: 12px 14px; }
-        .cw-dots { display: flex; gap: 4px; align-items: center; height: 10px; }
-        .cw-dots span { width: 6px; height: 6px; border-radius: 50%; background: #94a3b8; animation: cw-d 1.2s infinite; }
-        .cw-dots span:nth-child(2) { animation-delay: .15s; }
-        .cw-dots span:nth-child(3) { animation-delay: .3s; }
-        @keyframes cw-d { 0%,60%,100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-4px); opacity: 1; } }
-
-        /* Quick chips */
-        .cw-quick {
-          padding: 8px 12px 10px; display: flex; flex-wrap: wrap; gap: 6px;
-          background: #f8fafc; border-top: 1px solid #e2e8f0;
-        }
-        .cw-chip {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: 12px; font-weight: 500;
-          padding: 5px 12px; border-radius: 6px;
-          border: 1px solid #cbd5e1; background: white; color: #334155;
-          cursor: pointer; transition: all .15s; white-space: nowrap;
-          letter-spacing: -.01em;
-        }
-        .cw-chip:hover { background: #0f52ba; color: white; border-color: #0f52ba; }
-        .cw-chip.urgent { border-color: #fca5a5; color: #dc2626; }
-        .cw-chip.urgent:hover { background: #dc2626; color: white; border-color: #dc2626; }
-
-        /* Phone bar */
-        .cw-phone-bar {
-          background: #0a1f3d;
-          padding: 11px 14px; display: flex; align-items: center; gap: 12px;
-          flex-shrink: 0; border-top: 1px solid rgba(255,255,255,.06);
-          cursor: pointer;
-          transition: background .15s;
-        }
-        .cw-phone-bar:hover { background: #0d2a52; }
-        .cw-phone-bar-icon {
-          width: 32px; height: 32px; border-radius: 7px;
-          background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-        }
-        .cw-phone-bar-icon svg { display: block; }
-        .cw-phone-bar-text { flex: 1; min-width: 0; }
-        .cw-phone-bar-title {
-          font-size: 12.5px; font-weight: 500; color: white;
-          font-family: 'Inter', system-ui, sans-serif;
-        }
-        .cw-phone-bar-sub {
-          font-size: 11px; color: rgba(255,255,255,.4);
-          font-family: 'Inter', system-ui, sans-serif; margin-top: 1px;
-        }
-        .cw-phone-bar-arr { color: rgba(255,255,255,.3); font-size: 18px; flex-shrink: 0; line-height: 1; }
-
-        /* Input area */
-        .cw-input-area {
-          padding: 10px 12px; display: flex; gap: 8px; align-items: flex-end;
-          background: white; border-top: 1px solid #e2e8f0; flex-shrink: 0;
-        }
-        .cw-textarea {
-          flex: 1; min-width: 0; border: 1px solid #e2e8f0; border-radius: 8px;
-          padding: 9px 12px;
-          /* 16px минимум — предотвращает зум на iOS Safari при фокусе */
-          font-size: 16px;
-          font-family: 'Inter', system-ui, sans-serif;
-          resize: none; outline: none; line-height: 1.45; color: #1e293b;
-          max-height: 80px; background: #f8fafc;
-          transition: border-color .15s, background .15s;
-          /* Отключаем нативное масштабирование */
-          touch-action: manipulation;
-        }
-        .cw-textarea:focus { border-color: #0f52ba; background: white; }
-        .cw-textarea::placeholder { color: #94a3b8; }
-        .cw-send {
-          width: 38px; height: 38px; border-radius: 8px;
-          background: #0f52ba; border: none; cursor: pointer;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-          touch-action: manipulation;
-          transition: background .15s, opacity .15s;
-        }
-        .cw-send:hover { background: #0d47a8; }
-        .cw-send:active { opacity: .8; }
-        .cw-send:disabled { opacity: .35; cursor: default; }
-
-        /* Footer */
-        .cw-foot {
-          text-align: center; font-size: 10.5px; color: #cbd5e1;
-          padding: 6px; background: white; border-top: 1px solid #f1f5f9;
-          font-family: 'Inter', system-ui, sans-serif; letter-spacing: .01em;
-        }
-
-        /* Toast */
-        .cw-toast {
-          position: fixed; top: 20px; right: 20px;
-          background: #1e293b; color: #f1f5f9; padding: 9px 14px;
-          border-radius: 8px; font-size: 12.5px; z-index: 10001;
-          box-shadow: 0 4px 16px rgba(0,0,0,.2);
-          animation: cw-tin .2s ease;
-          font-family: 'Inter', system-ui, sans-serif;
-        }
-        @keyframes cw-tin { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 430px) {
-          .cw-win {
-            width: calc(100vw - 16px);
-            right: 8px;
-            bottom: 82px;
-            /* dvh учитывает виртуальную клавиатуру; fallback на vh */
-            max-height: calc(100vh - 110px);
-            max-height: calc(100dvh - 110px);
-          }
-          .cw-send {
-            /* Зафиксированный размер — кнопка не сжимается */
-            flex-shrink: 0;
-            width: 40px; height: 40px;
-          }
-          .cw-textarea { font-size: 16px; }
-        }
-      `}</style>
-
-      <div className="cw-root">
-        {showBadge && !open && <div className="cw-badge">1</div>}
-
-        <button className="cw-fab" onClick={open ? handleClose : handleOpen} aria-label="Чат">
-          {open ? (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-            </svg>
-          ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+      <div className={`${styles.cwWin}${open ? ` ${styles.cwOpen}` : ''}`}>
+        <div className={styles.cwHead}>
+          <div className={styles.cwAva}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)">
               <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
             </svg>
-          )}
-        </button>
+          </div>
+          <div className={styles.cwHeadInfo}>
+            <div className={styles.cwHeadName}>Eltex — Консультант</div>
+            <div className={styles.cwHeadStatus}>
+              <span className={styles.cwDot} />
+              <span>Онлайн</span>
+            </div>
+          </div>
+          <button className={styles.cwCloseBtn} onClick={handleClose} aria-label="Закрыть">
+            ✕
+          </button>
+        </div>
 
-        <div className={`cw-win${open ? ' cw-open' : ''}`}>
-          <div className="cw-head">
-            <div className="cw-ava">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-              </svg>
-            </div>
-            <div className="cw-head-info">
-              <div className="cw-head-name">Eltex — Консультант</div>
-              <div className="cw-head-status">
-                <span className="cw-dot" />
-                <span>Онлайн</span>
-              </div>
-            </div>
-            <button className="cw-close-btn" onClick={handleClose} aria-label="Закрыть">
-              ✕
-            </button>
+        <div className={styles.cwMsgs} ref={msgsRef}>
+          <div className={styles.cwDateDiv}>
+            <span>Сегодня</span>
           </div>
 
-          <div className="cw-msgs" ref={msgsRef}>
-            <div className="cw-date-div">
-              <span>Сегодня</span>
-            </div>
-
-            {messages.map((msg, i) => (
-              <div key={i} className={`cw-row ${msg.role}`}>
-                <div className="cw-msg-ava">
-                  {msg.role === 'bot' ? (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                    </svg>
-                  ) : (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#64748b">
-                      <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                    </svg>
-                  )}
-                </div>
-                <div className="cw-msg-col">
-                  <div className="cw-bubble">
-                    {msg.text}
-                    <span className="cw-btime">{msg.time}</span>
-                  </div>
-                  {msg.role === 'bot' && msg.showPhoneCta && !phoneReceived && (
-                    <button className="cw-phone-cta" onClick={handlePhoneHint}>
-                      <span className="cw-phone-cta-dot" />
-                      Оставить номер телефона
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            {loading && (
-              <div className="cw-row bot cw-typing">
-                <div className="cw-msg-ava">
+          {messages.map((msg, i) => (
+            <div key={i} className={`${styles.cwRow} ${styles[msg.role]}`}>
+              <div className={styles.cwMsgAva}>
+                {msg.role === 'bot' ? (
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
                     <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
                   </svg>
-                </div>
-                <div className="cw-bubble">
-                  <div className="cw-dots">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                </div>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#64748b">
+                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+                  </svg>
+                )}
               </div>
-            )}
-          </div>
-
-          {showQuick && (
-            <div className="cw-quick">
-              {QUICK_CHIPS.map((chip) => (
-                <button key={chip.text} className="cw-chip" onClick={() => sendMessage(chip.text)}>
-                  {chip.label}
-                </button>
-              ))}
-              <button className="cw-chip urgent" onClick={handleEscalate}>
-                Связаться с менеджером
-              </button>
+              <div className={styles.cwMsgCol}>
+                <div className={styles.cwBubble}>
+                  {msg.text}
+                  <span className={styles.cwBtime}>{msg.time}</span>
+                </div>
+                {msg.role === 'bot' && msg.showPhoneCta && !phoneReceived && (
+                  <button className={styles.cwPhoneCta} onClick={handlePhoneHint}>
+                    <span className={styles.cwPhoneCtaDot} />
+                    Оставить номер телефона
+                  </button>
+                )}
+              </div>
             </div>
-          )}
+          ))}
 
-          {showPhoneBar && !phoneReceived && (
-            <div
-              className="cw-phone-bar"
-              onClick={handlePhoneHint}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && handlePhoneHint()}>
-              <div className="cw-phone-bar-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)">
-                  <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          {loading && (
+            <div className={`${styles.cwRow} ${styles.bot} ${styles.cwTyping}`}>
+              <div className={styles.cwMsgAva}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
                 </svg>
               </div>
-              <div className="cw-phone-bar-text">
-                <div className="cw-phone-bar-title">Оставьте номер — перезвоним</div>
-                <div className="cw-phone-bar-sub">Менеджер свяжется в течение 5 минут</div>
+              <div className={styles.cwBubble}>
+                <div className={styles.cwDots}>
+                  <span />
+                  <span />
+                  <span />
+                </div>
               </div>
-              <div className="cw-phone-bar-arr">›</div>
             </div>
           )}
-
-          <div className="cw-input-area">
-            <textarea
-              ref={inputRef}
-              className="cw-textarea"
-              placeholder={!phoneReceived ? 'Вопрос или номер телефона...' : 'Напишите вопрос...'}
-              rows={1}
-              value={input}
-              onChange={(e) => {
-                setInput(e.target.value);
-                e.target.style.height = 'auto';
-                e.target.style.height = Math.min(e.target.scrollHeight, 84) + 'px';
-              }}
-              onKeyDown={handleKeyDown}
-            />
-            <button
-              className="cw-send"
-              onClick={() => sendMessage(input)}
-              disabled={!input.trim() || loading}
-              aria-label="Отправить">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-              </svg>
-            </button>
-          </div>
-
-          <div className="cw-foot">eltexalatau.kz · Powered by GPT-4o</div>
         </div>
 
-        {toast && <div className="cw-toast">{toast}</div>}
+        {showQuick && (
+          <div className={styles.cwQuick}>
+            {QUICK_CHIPS.map((chip) => (
+              <button
+                key={chip.text}
+                className={styles.cwChip}
+                onClick={() => sendMessage(chip.text)}>
+                {chip.label}
+              </button>
+            ))}
+            <button className={`${styles.cwChip} ${styles.urgent}`} onClick={handleEscalate}>
+              Связаться с менеджером
+            </button>
+          </div>
+        )}
+
+        {showPhoneBar && !phoneReceived && (
+          <div
+            className={styles.cwPhoneBar}
+            onClick={handlePhoneHint}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handlePhoneHint()}>
+            <div className={styles.cwPhoneBarIcon}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+              </svg>
+            </div>
+            <div className={styles.cwPhoneBarText}>
+              <div className={styles.cwPhoneBarTitle}>Оставьте номер — перезвоним</div>
+              <div className={styles.cwPhoneBarSub}>Менеджер свяжется в течение 5 минут</div>
+            </div>
+            <div className={styles.cwPhoneBarArr}>›</div>
+          </div>
+        )}
+
+        <div className={styles.cwInputArea}>
+          <textarea
+            ref={inputRef}
+            className={styles.cwTextarea}
+            placeholder={!phoneReceived ? 'Вопрос или номер телефона...' : 'Напишите вопрос...'}
+            rows={1}
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              e.target.style.height = 'auto';
+              e.target.style.height = Math.min(e.target.scrollHeight, 84) + 'px';
+            }}
+            onKeyDown={handleKeyDown}
+          />
+          <button
+            className={styles.cwSend}
+            onClick={() => sendMessage(input)}
+            disabled={!input.trim() || loading}
+            aria-label="Отправить">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </div>
+
+        <div className={styles.cwFoot}>eltexalatau.kz · Powered by GPT-4o</div>
       </div>
-    </>
+
+      {toast && <div className={styles.cwToast}>{toast}</div>}
+    </div>
   );
 }
