@@ -28,6 +28,10 @@ type Dictionary = {
     title: string;
     description: string;
   };
+  proiz: {
+    badge: string;
+    link: string;
+  };
   header: {
     navLinks: NavigationLink[];
     requestCta: string;
@@ -62,6 +66,8 @@ type Dictionary = {
 type TranslationMap = {
   'metadata.title': string;
   'metadata.description': string;
+  'proiz.badge': string;
+  'proiz.link': string;
   'header.navLinks': NavigationLink[];
   'header.requestCta': string;
   'header.menuLabel': string;
@@ -91,6 +97,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'ЭлтексАлатау',
       description:
         'Қазақстандық электроника және заманауи телекоммуникациялық жабдық өндірушісі. Қазақстандағы Eltex зауытының жалғыз ресми өкілі.',
+    },
+    proiz: {
+      badge: 'ӨНДІРІС',
+      link: 'Бару',
     },
     header: {
       navLinks: [
@@ -219,6 +229,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         'Казахстанский производитель телекоммуникационного оборудования в Алматы. Контрактное производство (локализация) и услуги SMD-монтажа плат. Компания основана в 2012 году.',
     },
+    proiz: {
+      badge: 'ПРОИЗВОДСТВО',
+      link: 'Перейти',
+    },
     header: {
       navLinks: [
         { label: 'О компании' },
@@ -345,6 +359,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'EltexAlatau',
       description:
         'A Kazakhstani manufacturer of electronics and modern telecommunications equipment. The sole official representative of the Eltex factory in Kazakhstan.',
+    },
+    proiz: {
+      badge: 'PRODUCTION',
+      link: 'go',
     },
     header: {
       navLinks: [
